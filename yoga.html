@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+
+<style>
+:root {
+    --beige: #f5f2ed;
+    --dark-green: #2d4628; 
+    --white: #ffffff;
+    --pink: #f4d3d3;
+    --text: #1a2e1a;
+    --indoor-red: #b34d4d;
+    --outdoor-green: #4d8b4d;
+}
+
+body { 
+    margin: 0; 
+    background-color: var(--beige); 
+    color: var(--text); 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container { 
+    padding: 60px 10%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.section-title { 
+    text-align: center; 
+    font-size: 2.2rem; 
+    margin-bottom: 40px; 
+}
+
+/* HERO */
+.hero { 
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    color: green; 
+    padding: 80px 10%;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    min-height: 70vh;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.hero-text { flex: 1; }
+
+.hero-text h1 { 
+    font-size: 4rem; 
+   
+}
+
+.hero-img { 
+    width: 380px; 
+    max-width: 100%;
+    border-radius: 40px; 
+}
+
+/* ZEN */
+.zen-box { 
+    display: flex; 
+    gap: 50px; 
+    align-items: center; 
+    background: white; 
+    padding: 50px; 
+    border-radius: 40px; 
+    flex-wrap: wrap;
+}
+
+.zen-img { 
+    flex: 1; 
+    height: 400px; 
+    border-radius: 30px; 
+    object-fit: cover; 
+    width: 100%;
+}
+
+.zen-text { flex: 5; }
+
+/* BENEFITS */
+.benefits-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px; 
+    perspective: 1000px;
+    padding: 60px 10%;
+}
+
+.benefit-card { 
+    height: 280px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.benefit-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background: var(--pink);
+}
+
+.card-back {
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    color: rgb(50, 131, 81);
+    transform: rotateY(180deg);
+}
+
+/* COMPARE */
+.compare-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 50px; 
+}
+
+.compare-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.compare-item { 
+    background: white; 
+    padding: 25px; 
+    border-radius: 20px; 
+    display: flex; 
+    gap: 20px; 
+}
+
+.item-num { 
+    width: 35px; 
+    height: 35px; 
+    border-radius: 50%; 
+    background: #f0f0f0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: bold; 
+    flex-shrink: 0;
+}
+
+/* CAROUSEL */
+.photo-carousel {
+    overflow: hidden;
+    background: #ffe6f0;
+    padding: 25px;
+    border-radius: 22px;
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.carousel-track img {
+    width: 320px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-right: 20px;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* INSTRUCTORS */
+.instructor-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+}
+
+.ins-card { 
+    background: white; 
+    border-radius: 35px; 
+    padding: 20px; 
+}
+
+.ins-photo { 
+    width: 100%; 
+    height: 280px; 
+    border-radius: 25px; 
+    object-fit: cover; 
+}
+
+/* FAQ */
+.faq-layout {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.faq-img {
+    flex: 1;
+    height: 400px;
+    border-radius: 30px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.faq-list { flex: 1; }
+
+details {
+    background: white;
+    margin-bottom: 12px;
+    border-radius: 15px;
+    padding: 18px;
+}
+
+/* BANNER */
+.banner { 
+    background: linear-gradient(135deg, #d4fc79, #96e6a1); 
+    color: rgb(50, 131, 81); 
+    padding: 80px 40px; 
+    border-radius: 50px; 
+    text-align: center; 
+}
+.banner a{
+  color: rgb(50, 131, 81);
+}
+
+.cta-btn { 
+    display: inline-block; 
+    background: var(--pink); 
+    padding: 15px 40px; 
+    border-radius: 35px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    margin-top: 20px; 
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    .instructor-grid { grid-template-columns: repeat(2, 1fr); }
+    .compare-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 { font-size: 2.5rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .instructor-grid { grid-template-columns: 1fr; }
+    .zen-box { padding: 30px; }
+    .container { padding: 40px 5%; }
+    
+}
+.instructor-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+}
+
+@media (max-width: 992px) {
+    .instructor-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .instructor-grid { grid-template-columns: 1fr; }
+}
+.compare-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 50px; 
+}
+
+@media (max-width: 992px) {
+    .compare-grid { grid-template-columns: 1fr; }
+}
+.photo-carousel {
+    overflow: hidden;
+    background: #ffe6f0;
+    padding: 25px;
+    border-radius: 22px;
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.carousel-track img {
+    width: 320px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .carousel-track img {
+        width: 240px;
+        height: 160px;
+    }
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+    footer {
+      background-color: #F1F8E9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .footer-title {
+      color: #1B5E20;
+    }
+
+    .footer-text {
+      color: #2E7D32;
+    }
+
+    .footer-link {
+      color: #2E7D32;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-link:hover {
+      color: #1B5E20;
+      padding-left: 5px;
+    }
+
+    .dropdown-menu {
+      background-color: #C8E6C9;
+      border: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: #66BB6A;
+      color: white;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    hr {
+      border-color: #C8E6C9;
+    }
+
+    hr {
+      border-color: #C8E6C9;
+    }
+     .navbar{
+    background-color: #fff;
+    height: 80px;
+    margin: 18px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.navbar-brand{
+    font-weight: 500;
+    color: #12d379;
+    font-size: 24px;
+
+}
+.login-button{
+    background-color: #12d379;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.login-button:hover{
+    background-color: #59b688;
+}
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close{
+    box-shadow: none;
+    outline: none;
+}
+.nav-link{
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active{
+    color: black;
+}
+@media(min-width: 991px){
+    .nav-link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #12d379;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-link:hover::before, .nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+
+
+}
+@media (max-width: 768px) {
+
+  .footer-brand {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .footer-brand h5 {
+    text-align: center;
+  }
+
+}
+</style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg  fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto d-flex" href="#">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5>
+                <a>
+                <div class="offcanvas offcanvas-end"  id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                
+                <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="AboutUs.html">About Us</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Activity
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+                                    <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+                                    <li><a class="dropdown-item" href="Meditation.html">Meditation</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Event
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+                                    <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+                                    <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="volunteer.html">Volunteer</a>
+                            </li>
+
+                           <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="Schedule.html">Schedule</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="Login.html">Log in</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="SignUp.html">Sign Up</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="ContactUs.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+
+<!-- HERO -->
+<div class="hero">
+<div class="hero-text">
+<h1 class="mt-5"><b>Embrace Your </b><br><b> Inner Peace.</b></h1>
+<p style="font-size: 1.2rem; opacity: 0.8; max-width: 500px;">
+Join our community in the heart of the park for a yoga experience that reconnects you with nature.
+</p>
+</div>
+<img src="https://i.pinimg.com/1200x/be/14/e2/be14e25bbe9b79cf83a6af1e7478ece0.jpg" class="hero-img mt-5">
+</div>
+
+<!-- ZEN -->
+<div class="container">
+<div class="zen-box">
+<img src="https://i.pinimg.com/1200x/d7/9e/a4/d79ea4dec5a98166d6bb1b61bda5180c.jpg" class="zen-img">
+<div class="zen-text">
+<h3>Why Park Zones Are Good For Yoga?</h3>
+<p>
+Park zones provide a peaceful natural setting. The greenery and fresh air reduce stress and improve concentration while open spaces allow free movement.
+</p>
+</div>
+</div>
+</div>
+
+<div class="benefits-grid">
+<div class="benefit-card">
+<div class="card-inner">
+<div class="card-front">
+<h3>Mental Clarity</h3>
+<p>Reduce stress and clear your mind with daily practice.</p>
+</div>
+<div class="card-back">
+<h3>Inner Peace</h3>
+<p>Find stillness in the park environment.</p>
+</div>
+</div>
+</div>
+<div class="benefit-card">
+<div class="card-inner">
+<div class="card-front">
+<h3>Physical Strength</h3>
+<p>Build core power and flexibility through yoga.</p>
+</div>
+<div class="card-back">
+<h3>Full Body</h3>
+<p>Dynamic movements to strengthen every muscle.</p>
+</div>
+</div>
+</div>
+<div class="benefit-card">
+<div class="card-inner">
+<div class="card-front">
+<h3>Better Sleep</h3>
+<p>Relaxation techniques that help you rest deeply.</p>
+</div>
+<div class="card-back">
+<h3>Nightly Rest</h3>
+<p>Unwind your nervous system before bed.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- COMPARE SECTION -->
+<div class="container">
+  <div style="text-align: center; margin-bottom: 40px;">
+    <h2 style="margin-bottom: 5px;">Yoga Indoor and Outdoor</h2>
+    <p style="color: #777;">Comparing indoor and outdoor yoga practice</p>
+  </div>
+
+  <div class="compare-grid">
+
+    <!-- Indoor -->
+    <div>
+      <h3 style="color: var(--indoor-red); text-align: center;">Yoga Indoor</h3>
+
+      <div class="compare-list indoor-list">
+
+        <div class="compare-item">
+          <div class="item-num">01</div>
+          <div>
+            <b>Limited Space Indoors</b>
+            <p style="font-size: 0.85rem; color: #666;">
+              Indoor yoga rooms are often small and restrict group participation.
+            </p>
+          </div>
+        </div>
+
+        <div class="compare-item">
+          <div class="item-num">02</div>
+          <div>
+            <b>Lack of Natural Environment</b>
+            <p style="font-size: 0.85rem; color: #666;">
+              Indoor spaces limit exposure to fresh air and greenery.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Outdoor -->
+    <div>
+      <h3 style="color: var(--outdoor-green); text-align: center;">Outdoor Yoga</h3>
+
+      <div class="compare-list outdoor-list">
+
+        <div class="compare-item">
+          <div class="item-num">01</div>
+          <div>
+            <b>Open Park Yoga Zones</b>
+            <p style="font-size: 0.85rem; color: #666;">
+              Parks provide open spaces that support larger group yoga sessions.
+            </p>
+          </div>
+        </div>
+
+        <div class="compare-item">
+          <div class="item-num">02</div>
+          <div>
+            <b>Nature-Based Well-Being</b>
+            <p style="font-size: 0.85rem; color: #666;">
+              Greenery and fresh air improve relaxation and mental health.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PEACEFUL MOMENTS -->
+<div class="container">
+  <h2 class="section-title">Peaceful Yoga Moments in the Park</h2>
+
+  <div class="photo-carousel">
+    <div class="carousel-track">
+
+      <img src="https://i.pinimg.com/1200x/be/14/e2/be14e25bbe9b79cf83a6af1e7478ece0.jpg">
+      <img src="yogsimg.jpg">
+      <img src="https://a0.muscache.com/im/pictures/Mt/MtTemplate-1107808/original/c59652db-f763-4411-ad8f-98061617e8ae.jpeg">
+      <img src="yogaimg2.jpg">
+      <img src="https://a0.muscache.com/im/pictures/Mt/MtTemplate-1107808/original/e9b91daf-0bb0-4fb8-8fd7-1d330e2532a0.jpeg">
+      <img src="https://pbs.twimg.com/media/D7dz8SmUcAIEGMg.jpg">
+
+      <!-- duplicate images for smooth infinite effect -->
+      <img src="https://i.pinimg.com/1200x/be/14/e2/be14e25bbe9b79cf83a6af1e7478ece0.jpg">
+      <img src="https://i.pinimg.com/1200x/68/7a/d5/687ad53e1c32101b214358c4fb817a84.jpg">
+      <img src="https://a0.muscache.com/im/pictures/Mt/MtTemplate-1107808/original/c59652db-f763-4411-ad8f-98061617e8ae.jpeg">
+
+    </div>
+  </div>
+</div>
+
+
+<!-- INSTRUCTORS -->
+<div class="container">
+  <h2 class="section-title">Meet our instructors</h2>
+
+  <div class="instructor-grid">
+
+    <div class="ins-card">
+      <img src="https://www.freiheit.org/sites/default/files/2023-05/ssn-4.jpg" class="ins-photo">
+      <h3 style="margin: 15px 0 5px 0;">Thuza</h3>
+      <p><b>Experience:</b> 6 Years</p>
+      <p><b>Classes:</b> 450+ Taught</p>
+      <p style="color: #888; font-size: 0.9rem;">Yoga Specialist</p>
+    </div>
+
+    <div class="ins-card">
+      <img src="https://cdn.shopify.com/s/files/1/0680/6667/2806/files/YI_PF_-_Naw_Htet_Htet_Khine.jpg?v=1742294393" class="ins-photo">
+      <h3 style="margin: 15px 0 5px 0;">Naw Htet Khine</h3>
+      <p><b>Experience:</b> 10 Years</p>
+      <p><b>Classes:</b> 800+ Taught</p>
+      <p style="color: #888; font-size: 0.9rem;">Meditation Guide</p>
+    </div>
+
+    <div class="ins-card">
+      <img src="https://cdn.shopify.com/s/files/1/0680/6667/2806/files/YI_PF_-_Min_Khant.jpg?v=1742293249" class="ins-photo">
+      <h3 style="margin: 15px 0 5px 0;">Min Khant</h3>
+      <p><b>Experience:</b> 5 Years</p>
+      <p><b>Classes:</b> 300+ Taught</p>
+      <p style="color: #888; font-size: 0.9rem;">Restorative Expert</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- BANNER -->
+<div class="container">
+<div class="banner">
+<h2>Ready to start your journey?</h2>
+<p>Click below to see our available classes and sessions.</p>
+<a href="Schedule.html" class="cta-btn">Go to Schedule Page</a>
+</div>
+</div>
+
+ <!-- Footer -->
+  <footer class="pt-5 pb-4  border-top">
+    <div class="custom-container text-center text-md-start">
+      <div class="row">
+
+        <!-- About Section -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <div class="d-flex align-items-center mb-3 footer-brand">
+            <img src="logo.png" alt="Green Aliens Logo" class="footer-logo">
+            <h5 class="fw-bold mb-0 footer-title">Green Aliens</h5>
+          </div>
+          <p class="footer-text">
+            A hub for park activities and positive change. Join events, volunteer your time, and help transform our park into a vibrant space for everyone.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Quick Links</h6>
+
+          <p><a href="index.html" class="footer-link">Home</a></p>
+          <p><a href="AboutUs.html" class="footer-link">About Us</a></p>
+
+          <!-- Activity Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Activity
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+              <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+              <li><a class="dropdown-item" href="Meditation.html">Meditation Club</a></li>
+            </ul>
+          </div>
+
+          <!-- Event Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Event
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+              <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+              <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+            </ul>
+          </div>
+
+          
+           <p><a href="volunteer.html" class="footer-link">Volunteer</a></p>
+          <p><a href="Schedule.html" class="footer-link">Schedule</a></p>
+           <p><a href="ICT reference list (1) (1).pdf" class="footer-link">Reference</a></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Contact Us</h6>
+
+          <p class="footer-text">
+            <i class="bi bi-geo-alt-fill contact-icon"></i>
+            Yangon, Myanmar
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-telephone-fill contact-icon"></i>
+            +95 9 123 456 789
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-envelope-fill contact-icon"></i>
+            thealiens@example.com
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <hr class="my-4">
+
+      <!-- Copyright -->
+      <div class="text-center">
+        <small class="footer-text">
+           © 2026 Green Aliens. All Rights Reserved.
+        </small>
+      </div>
+
+    </div>
+  </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

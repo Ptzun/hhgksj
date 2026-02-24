@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+
+<style>
+body{
+  min-height:100vh;
+  background:#f6f5f7;
+  padding-top:120px;
+  display:flex;
+  flex-direction:column;
+}
+
+.main-content{
+  flex:1;
+}
+
+.main-card{
+  width:900px;
+  max-width:95%;
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 15px 30px rgba(0,0,0,0.1);
+}
+
+.left-side{
+  padding:60px 50px;
+  text-align:center;
+}
+
+.social-icons a{
+  border:1px solid #ddd;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 5px;
+  color:#046f24;
+  text-decoration:none;
+}
+
+.left-side input{
+  background:#eee;
+  border:none;
+  padding:12px;
+  margin-bottom:12px;
+}
+
+.btn-signin{
+  background:linear-gradient(135deg,#d4fc79,#96e6a1);
+  color:#2c8e3e;
+  border-radius:30px;
+  padding: 10px 40px;
+  border:none;
+  max-width:200px;
+  width:100%;
+}
+
+.right-side{
+  background:linear-gradient(135deg,#d4fc79,#96e6a1);
+  padding:60px 40px;
+  text-align:center;
+}
+
+.btn-signup{
+  background:transparent;
+  color:#2c8e3e;
+  border:1px solid #fff;
+  border-radius:30px;
+  padding:10px 40px;
+  max-width:200px;
+  width:100%;
+}
+
+ .navbar{
+    background-color: #fff;
+    height: 80px;
+    margin: 18px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.navbar-brand{
+    font-weight: 500;
+    color: #12d379;
+    font-size: 24px;
+
+}
+.login-button{
+    background-color: #12d379;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.login-button:hover{
+    background-color: #59b688;
+}
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close{
+    box-shadow: none;
+    outline: none;
+}
+.nav-link{
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active{
+    color: black;
+}
+@media(min-width: 991px){
+    .nav-link::before{
+         content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #12d379;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-link:hover::before, .nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+
+
+}
+
+     footer {
+      background-color: #F1F8E9;
+      
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .footer-title {
+      color: #1B5E20;
+    }
+
+    .footer-text {
+      color: #2E7D32;
+    }
+
+    .footer-link {
+      color: #2E7D32;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-link:hover {
+      color: #1B5E20;
+      padding-left: 5px;
+    }
+
+    .dropdown-menu {
+      background-color: #C8E6C9;
+      border: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: #66BB6A;
+      color: white;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    hr {
+      border-color: #C8E6C9;
+    }
+    @media (max-width: 768px) {
+  .hero-section {
+    margin-top: 90px;
+    padding: 40px 15px;
+  }
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 768px) {
+
+  .footer-brand {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .footer-brand h5 {
+    text-align: center;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto d-flex" href="#">
+                    <img src="logo.png" alt="logo"style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5>
+                <a>
+                <div class="offcanvas offcanvas-end"  id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+               
+                <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="index.html">Home</a>
+                            </li>
+ 
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="AboutUs.html">About Us</a>
+                            </li>
+ 
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Activities
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+                                    <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+                                    <li><a class="dropdown-item" href="Meditation.html">Meditation club</a></li>
+                                </ul>
+                            </li>
+ 
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Events
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+                                    <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+                                    <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+                                </ul>
+                            </li>
+ 
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="volunteer.html">Volunteer</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="Schedule.html">Schedule</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active  mx-lg-2" href="Login.html">Log in</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="SignUp.html">Sign Up</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="ContactUs.html">Contact Us</a>
+                            </li>
+                            </ul>
+                    </div>
+                </div>
+                <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+            </div>
+        </nav>
+
+<!-- MAIN CONTENT -->
+<div class="main-content d-flex justify-content-center align-items-center mb-5">
+<div class="main-card row g-0">
+
+<div class="col-md-6 left-side">
+<h2 class="fw-bold mb-3 text-success">Log in</h2>
+
+<div class="social-icons mb-3">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-google"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+<p class="text-muted">or use your account</p>
+
+<input type="email" class="form-control" placeholder="Email">
+<input type="password" class="form-control" placeholder="Password">
+
+<a href="#" class="d-block text-muted my-3">Forgot your password?</a>
+<a href="index.html" class="btn btn-signin">LOG IN</a>
+</div>
+
+<div class="col-md-6 right-side d-flex flex-column justify-content-center align-items-center text-center">
+<h2 class="fw-bold text-success">Hello, Friend!</h2>
+<p class="text-success">Enter your details and start your journey with us</p>
+<a href="SignUp.html" class="btn btn-signup mt-3">SIGN UP</a>
+</div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+ <!-- Footer -->
+  <footer class="pt-5 pb-4  border-top">
+    <div class="container text-center text-md-start">
+      <div class="row">
+
+        <!-- About Section -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <div class="d-flex align-items-center mb-3">
+            <img src="logo.png" alt="Green Aliens Logo" class="footer-logo">
+            <h5 class="fw-bold mb-0 footer-title">Green Aliens</h5>
+          </div>
+          <p class="footer-text">
+            A hub for park activities and positive change. Join events, volunteer your time, and help transform our park into a vibrant space for everyone.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Quick Links</h6>
+
+          <p><a href="index.html" class="footer-link">Home</a></p>
+          <p><a href="AboutUs.html" class="footer-link">About Us</a></p>
+
+          <!-- Activity Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Activity
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Yoga Club</a></li>
+              <li><a class="dropdown-item" href="#">Zumba Club</a></li>
+              <li><a class="dropdown-item" href="Meditation.html">Meditation Club</a></li>
+            </ul>
+          </div>
+
+          <!-- Event Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Event
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Fun Fair</a></li>
+              <li><a class="dropdown-item" href="#">Food Court</a></li>
+              <li><a class="dropdown-item" href="#">Renting</a></li>
+            </ul>
+          </div>
+
+          
+           <p><a href="#" class="footer-link">Volunteer</a></p>
+          <p><a href="#" class="footer-link">Schedule</a></p>
+           <p><a href="ICT reference list (1) (1).pdf" class="footer-link">Reference</a></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Contact Us</h6>
+
+          <p class="footer-text">
+            <i class="bi bi-geo-alt-fill contact-icon"></i>
+            Yangon, Myanmar
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-telephone-fill contact-icon"></i>
+            +95 9 123 456 789
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-envelope-fill contact-icon"></i>
+            thealiens@example.com
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <hr class="my-4">
+
+      <!-- Copyright -->
+      <div class="text-center">
+        <small class="footer-text">
+           © 2026 Green Aliens. All Rights Reserved.
+        </small>
+      </div>
+
+    </div>
+  </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

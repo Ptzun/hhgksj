@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Food Court</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+ <style>
+          footer {
+      background-color: #F1F8E9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .footer-title {
+      color: #1B5E20;
+    }
+
+    .footer-text {
+      color: #2E7D32;
+    }
+
+    .footer-link {
+      color: #2E7D32;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-link:hover {
+      color: #1B5E20;
+      padding-left: 5px;
+    }
+
+    .dropdown-menu {
+      background-color: #C8E6C9;
+      border: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: #66BB6A;
+      color: white;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    hr {
+      border-color: #C8E6C9;
+    }
+        .hero-section {
+      margin-top: 120px; /* Prevent overlap with fixed navbar */
+      background: linear-gradient(135deg, #d4fc79, #96e6a1);
+      color: #1d4e29;
+      padding: 80px 0;
+      border-radius: 25px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    /* ========== Base ========== */
+
+ 
+/* ========== Hero Section ========== */
+.hero {
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  border-radius: 28px;
+  padding: 40px;
+  transition: 0.4s ease;
+   margin-left: 20px;
+      margin-right: 20px;
+}
+ 
+.hero:hover {
+  transform:scale(1.02);
+}
+ 
+.hero h1 {
+  font-weight:800;
+}
+ 
+/* ========== Cards (Food / Why / Chef) ========== */
+.food-card, .why-box, .chef-card {
+  background:#fff;
+  border-radius:20px;
+  padding:18px;
+   margin-left: 30px;
+      margin-right: 30px;
+  text-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  transition:.3s ease;
+}
+ 
+.food-card:hover, .why-box:hover, .chef-card:hover {
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 18px 40px rgba(0,0,0,0.18);
+}
+ 
+.food-card img, .chef-card img {
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:50%;
+  transition:.3s;
+}
+ 
+.food-card:hover img, .chef-card:hover img {
+  transform:rotate(-3deg) scale(1.1);
+}
+ 
+/* ========== Text Badges ========== */
+.tag {
+  background:#5cb85c;
+  color:#fff;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:.75rem;
+}
+ 
+.stars {
+  color:#f5b301;
+}
+ 
+.likes {
+  color:#e63946;
+  font-weight:600;
+}
+ 
+.chef-role {
+  color:#5cb85c;
+  font-size:.85rem;
+}
+ 
+/* ========== Highlight Box ========== */
+.highlight {
+  background:#f7faf7;
+  color:#333;
+  border-radius:25px;
+  padding:25px;
+  transition:.3s;
+}
+ 
+.highlight:hover {
+  transform:scale(1.03);
+}
+ 
+/* ========== Cuisine Accordion Cards ========== */
+.cuisine-card {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  font-size: 0.9rem;
+}
+ 
+.cuisine-card summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  list-style: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  border-radius: 15px;
+}
+ 
+.cuisine-card summary img {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+ 
+.cuisine-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+ 
+.cuisine-card[open] summary {
+  background-color: #f9f9f9;
+}
+ 
+.cuisine-info {
+  padding: 10px 15px;
+  color: #555;
+  line-height: 1.4;
+  font-size: 0.85rem;
+  animation: fadeIn 0.4s ease forwards;
+}
+ 
+/* ===== CUISINE CARD LAYOUT ===== */
+.cuisine-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+ 
+.cuisine-card {
+  width: 100%;
+  border-radius: 18px;
+  padding: 16px;
+}
+ 
+/* ========== Carousel ========== */
+.carousel {
+  display: flex;
+  overflow-x: hidden;
+  border: none;
+  width: 100%;
+  position: relative;
+  
+}
+ 
+.group {
+  display: flex;
+  animation: spin 8s linear infinite;
+  padding-right: 1em;
+}
+ 
+.food-card {
+  flex: 0 0 auto;
+  width: 180px;
+  margin-right: 1em;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  text-align: center;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+ 
+.food-card img {
+  width: 120px;    
+  height: 120px;    
+  object-fit: cover;
+  border-radius: 50%;
+}
+ 
+.food-card:hover {
+  transform: scale(1.05);
+}
+ 
+.stars {
+  color: gold;
+  margin: 5px 0;
+}
+ 
+.likes {
+  font-size: 0.9rem;
+  color: #555;
+}
+ 
+.tag {
+  display: inline-block;
+  background: #95cbe4;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+ 
+/* ========== Animations ========== */
+@keyframes spin {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+ 
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+ 
+/* ===== MINI CAROUSEL INSIDE CUISINE CARDS ===== */
+.carousel-mini {
+  overflow: hidden;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+ 
+.track-mini {
+  display: flex;
+  gap: 12px;
+  animation: slideMini 10s linear infinite;
+}
+ 
+ 
+.carousel-mini img {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+ 
+/* ===== MINI CAROUSEL ANIMATION ===== */
+@keyframes slideMini {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+ 
+/* ===== Park ===== */
+.revitalize-grid .col-md-4 {
+  perspective: 1000px;
+}
+ 
+.rev-card {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+  border-radius: 22px;
+  cursor: pointer;
+  
+}
+ 
+.rev-card:hover {
+  transform: rotateY(180deg);
+}
+ 
+.rev-front, .rev-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 22px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  
+}
+ 
+.rev-front {
+  color: white;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+ 
+.rev-front::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  border-radius: 22px;
+}
+ 
+.rev-front h5,
+.rev-front p {
+  position: relative;
+  z-index: 2;
+}
+ 
+ 
+.rev-img-1 .rev-front {
+  background-image: url("park.jpg");
+}
+ 
+.rev-img-2 .rev-front {
+  background-image: url("revive.jpg");
+}
+ 
+.rev-img-3 .rev-front {
+  background-image: url("su.jpg");
+}
+ 
+ 
+.rev-back {
+  background: #ffffff;
+  transform: rotateY(180deg);
+}
+ 
+/* ===== Timeline ===== */
+.timeline-section {
+  padding: 40px 0;
+ 
+}
+ 
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+ 
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: #f5a486;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+}
+ 
+.timeline-step {
+  padding: 20px 30px;
+  position: relative;
+  width: 50%;
+}
+ 
+.timeline-step.left {
+  left: 0;
+}
+ 
+.timeline-step.right {
+  left: 50%;
+}
+ 
+.timeline-content {
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+ 
+.timeline-content:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.2);
+}
+ 
+/* Circles on the line */
+.timeline-step::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  width: 18px;
+  height: 18px;
+  background: #b85c5c;
+  border-radius: 50%;
+  z-index: 1;
+}
+ 
+.timeline-step.left::before {
+  right: -9px;
+}
+ 
+.timeline-step.right::before {
+  left: -9px;
+}
+ 
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 10px;
+  }
+ 
+  .timeline-step {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 30px;
+  }
+ 
+  .timeline-step.right {
+    left: 10px;
+  }
+
+  .timeline-step.left {
+    left: 0;
+  }
+ 
+  .timeline-step::before {
+    left: 0;
+  }
+}
+ 
+/*SCHEDULE*/
+ 
+ 
+/*GLOBAL STYLES*/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F1F8E9;
+  padding: 14px;
+}
+ 
+/*TABS CONTAINER*/
+.tabs {
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+ 
+/*TAB LABELS*/
+.tab-labels {
+  display: flex;
+  background: #eaeaf1;
+}
+ 
+.tab-labels input {
+  display: none;
+}
+ 
+.tab-labels label {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  background: #eaeaf1;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+ 
+.tab-labels label:hover {
+  background: #dcdcf5;
+}
+
+  .hero-section {
+      margin-top: 120px; /* Prevent overlap with fixed navbar */
+      background: linear-gradient(135deg, #d4fc79, #96e6a1);
+      color: #155d27;
+      padding: 80px 0;
+      border-radius: 25px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .btn-custom {
+      background-color: #21965f;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+      background-color: #0fa866;
+      transform: translateY(-2px);
+    }
+
+    .main-img {
+      width: 100%;
+      border-radius: 25px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      .text-area {
+        text-align: center;
+      }
+    }
+     .navbar{
+    background-color: #fff;
+    height: 80px;
+    margin: 18px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.navbar-brand{
+    font-weight: 500;
+    color: #12d379;
+    font-size: 24px;
+
+}
+.login-button{
+    background-color: #12d379;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.login-button:hover{
+    background-color: #59b688;
+}
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close{
+    box-shadow: none;
+    outline: none;
+}
+.nav-link{
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active{
+    color: black;
+}
+@media(min-width: 991px){
+    .nav-link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #12d379;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-link:hover::before, .nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+
+
+}
+@media (max-width: 768px) {
+
+  .footer-brand {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .footer-brand h5 {
+    text-align: center;
+  }
+
+}
+.hgh{
+   margin-left: 30px;
+    margin-right: 30px;
+}
+ </style>
+<body>
+
+  <nav class="navbar navbar-expand-lg  fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto d-flex" href="#">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5>
+                <a>
+                <div class="offcanvas offcanvas-end"  id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                  <div class="d-flex">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5>
+                  </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                
+                <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="AboutUs.html">About Us</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Activity
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+                                    <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+                                    <li><a class="dropdown-item" href="Meditation.html">Meditation</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Event
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+                                    <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+                                    <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="volunteer.html">Volunteer</a>
+                            </li>
+
+                           <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="Schedule.html">Schedule</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="Login.html">Log in</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="SignUp.html">Sign Up</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="ContactUs.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+
+<section class="hero-section mb-5 my-5">
+  <div class="container ">
+    <div class="row align-items-center">
+
+      <div class="col-lg-6 text-area">
+        <h1>Satisfy Your <br>Cravings</h1>
+
+        <div class="mt-4">
+          <h6 class="fw-bold">--------------</h6>
+          <p>
+            Enjoy a variety of delicious meals and refreshing beverages at our food court. From local favorites to light snacks and healthy options, there’s something for everyone to enjoy in a clean and relaxing environment.
+          </p>
+          <a href="#meditation" class="btn btn-custom">Explore</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mt-4 mt-lg-0">
+        <img src="https://i.pinimg.com/1200x/5a/7e/26/5a7e263f0f864d167a0cb40426229ac5.jpg"
+             class="main-img shadow"
+             alt="">
+      </div>
+
+    </div>
+  </div>
+</section>
+   
+<div class="row g-4 align-items-center mb-5">
+ 
+  <!-- Hero -->
+  <div class="col-md-5" id="meditation">
+    <div class="hero">
+      <h1>Just Come to <br><span class="text-success">Food Court</span> & Choose</h1>
+      <p class="text-muted mt-3">Discover delicious food options made for every mood.</p>
+    </div>
+  </div>
+ 
+  <!-- Infinite Carousel -->
+  <div class="col-md-7">
+    <div class="carousel">
+      <div class="group">
+        <div class="food-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0S3FzoJhMJ5vknnn1suklzbCyeWcWd4IJ8w&s" alt="">
+          <h6 class="mt-2 fw-bold">Picnics</h6>
+          <div class="stars">★★★★★</div>
+          <span class="tag">Picnic in the park with your favorites</span>
+        </div>
+ 
+        <div class="food-card">
+          <img src="https://i.pinimg.com/1200x/68/9b/3f/689b3f80841d04ffd4c875d5b00500ce.jpg">
+          <h6 class="mt-2 fw-bold">Views</h6>
+          <div class="stars">★★★★★</div>
+          <span class="tag">Enjoying the view with a bite of your favourite food</span>
+        </div>
+ 
+        <div class="food-card">
+          <img src="https://media-cdn.tripadvisor.com/media/photo-i/0d/50/d9/6b/thakhin-mya-park-in-yangon.jpg" alt="">
+          <h6 class="mt-2 fw-bold">Fresh air</h6>
+          <div class="stars">★★★★★</div>
+          <span class="tag">Where food meets fresh air and every bite feels better.</span>
+        </div>
+      </div>
+ 
+      <!-- Duplicate group for infinite loop -->
+      <div class="group" aria-hidden="true">
+        <div class="food-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0S3FzoJhMJ5vknnn1suklzbCyeWcWd4IJ8w&s" alt="">
+          <h6 class="mt-2 fw-bold">Picnics</h6>
+          <div class="stars">★★★★★</div>
+          <span class="tag">Picnic in the park with your favorites</span>
+        </div>
+ 
+        <div class="food-card">
+          <img src="https://i.pinimg.com/1200x/68/9b/3f/689b3f80841d04ffd4c875d5b00500ce.jpg">
+          <h6 class="mt-2 fw-bold">Views</h6>
+          <div class="stars">★★★★☆</div>
+          <span class="tag">Enjoying the view with a bite of your favourite food</span>
+        </div>
+ 
+        <div class="food-card">
+          <img src="https://media-cdn.tripadvisor.com/media/photo-i/0d/50/d9/6b/thakhin-mya-park-in-yangon.jpg" alt="">
+          <h6 class="mt-2 fw-bold">Fresh air</h6>
+          <div class="stars">★★★★★</div>
+          <span class="tag">Where food meets fresh air and every bite feels better.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- WHY SECTION -->
+<div class="text-center mb-4">
+  <h3 class="fw-bold">Why Choose Food Court?</h3>
+  <p class="text-muted">More than food. It’s the experience.</p>
+</div>
+ 
+<div class="row g-4 mb-5">
+  <div class="col-md-4"><div class="why-box">🍃 <h6 class="fw-bold mt-2">Healthy Options</h6><p class="text-muted small">Fresh & balanced.</p></div></div>
+  <div class="col-md-4"><div class="why-box">⭐ <h6 class="fw-bold mt-2">Top Quality</h6><p class="text-muted small">Best ingredients only.</p></div></div>
+  <div class="col-md-4"><div class="why-box">🚀 <h6 class="fw-bold mt-2">Fast & Easy</h6><p class="text-muted small">Quick service.</p></div></div>
+</div>
+ 
+<!-- CHEFS -->
+<div class="text-center mb-3">
+  <h3 class="fw-bold">Our Special Chefs 👨‍🍳</h3>
+</div>
+ 
+<div class="row g-4 justify-content-center mb-5">
+  <div class="col-6 col-md-3">
+    <div class="chef-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq7Nlt3UpE81SFe1ivtZ3nizqdoYDQtHNRWw&s" alt="">
+      <h6 class="mt-2 fw-bold">Chef Aung Wai Phyo</h6>
+      <p class="chef-role">Can cook anything</p>
+    </div>
+  </div>
+ 
+  <div class="col-6 col-md-3">
+    <div class="chef-card">
+      <img src="https://cdn.coconuts.co/coconuts/wp-content/uploads/2021/06/Suu-Khin-Masterchef-Legends.png">
+      <h6 class="mt-2 fw-bold">Chef Suu Khin</h6>
+      <p class="chef-role">Can cook anything</p>
+    </div>
+  </div>
+ 
+  <div class="col-6 col-md-3">
+    <div class="chef-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUxdzLCDoTgEzyoS5WfLk2oKkTXsLP0RVppA&s" alt="">
+      <h6 class="mt-2 fw-bold">Chef Zaw Aung</h6>
+      <p class="chef-role">Can cook anything</p>
+    </div>
+  </div>
+</div>
+ 
+  <!-- CUISINES SECTION -->
+<div class="mt-5 text-center">
+  <h3 class="fw-bold">🌍 Explore Our Food Stalls</h3>
+ 
+<div class="row g-4 mt-3 hgh">
+ 
+  <!-- Drinks -->
+  <div class="col-md-4">
+    <details class="cuisine-card">
+      <summary>
+        <img src="https://i.pinimg.com/736x/d6/52/5d/d6525d6a709d816de6d99dd556ece2e6.jpg" alt="">
+         Drinks and dessert!
+      </summary>
+      <div class="cuisine-info">
+        <p>
+  Fruit juice, soft drinks, and delicious sweet desserts!
+  <a href="https://www.glitter-graphics.com">
+    <img src="http://dl2.glitter-graphics.net/pub/1558/1558742m6w886e4oy.gif"
+         width="45" height="45" style="vertical-align: middle;">
+  </a>
+</p>
+        <div class="carousel-mini">
+          <div class="track-mini">
+            <img src="https://cdn.shopify.com/s/files/1/0252/0904/5067/files/Fruit_Juice_1_600x600.jpg?v=1721712734">
+            <img src="https://www.cannonlogistics.com.au/wp-content/uploads/2015/11/soft-drink-cans.jpg">
+            <img src="https://www.recipetineats.com/tachyon/2020/09/Vanilla-Cupcakes-with-Vanilla-Swiss-Meringue-2.jpg">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNMzFaecuwQR8S3OILsG3gfUklWwWf2e7NSw&s">
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="col-md-4">
+    <details class="cuisine-card">
+      <summary>
+        <img src="https://i.pinimg.com/736x/34/c2/c2/34c2c2b4da9e5289f68fdb9db82c9d3c.jpg" alt="">
+         Asain Classics!
+      </summary>
+      <div class="cuisine-info">
+        <p>
+ Delicious asian comfort foods like fried noodles and fried rice!
+  <a href="https://www.glitter-graphics.com">
+    <img src="http://dl5.glitter-graphics.net/pub/1663/1663415rlhzv7qbsc.gif"
+         width="40" height="40" style="vertical-align: middle;">
+  </a>
+</p>
+        <div class="carousel-mini">
+          <div class="track-mini">
+            <img src="https://www.myanmars.net/images/Shan_fish_tomato.jpg">
+            <img src="https://lh3.googleusercontent.com/r0N_yFY64RtBa7s-Qvmfw50rBQ-DFfqRL0TSiugZn5gq-zUOQPdsXnaNofVe2f8H4FFBtNtrHpdxldMdh7zmJnFnjWTu55h2FXVrVCR0xxsKakC2EF0ORnmcrR2d28YvYf8uv5Ku">
+            <img src="https://thumbs.dreamstime.com/b/noodles-15561949.jpg">
+            <img src="https://www.eatingonadime.com/wp-content/uploads/2022/01/eod-fried-rice-9-2.jpg">
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+ 
+  
+ 
+  <!-- Healthy -->
+  <div class="col-md-4">
+    <details class="cuisine-card">
+      <summary>
+        <img src="https://i.pinimg.com/1200x/2b/9f/f1/2b9ff1c894431295f4eb603a57078fe4.jpg" alt="">
+        Healthy Bowls!
+      </summary>
+      <div class="cuisine-info">
+        <p>Fresh salads, grain bowls, and light meals for clean energy.
+           <a href="https://www.glitter-graphics.com">
+            <img src="http://dl7.glitter-graphics.net/pub/2557/2557407ajoltdi54o.gif"
+            width="45" height="45" border=0></a>
+        </p>
+ 
+        <div class="carousel-mini">
+          <div class="track-mini">
+            <img src="https://healthyfitnessmeals.com/wp-content/uploads/2018/08/Grilled-chicken-burrito-bowls-10.jpg">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpksWBlhTk9c56gHp1Nptqk5YegBmp14WfUw&s">
+            <img src="https://simple-veganista.com/wp-content/uploads/2016/05/everyday-nourish-bowl.jpg">
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+ 
+</div>
+ 
+<!-- PARK SECTION -->
+<div class="text-center mb-4 mt-5">
+  <h3 class="fw-bold">🌱 How it helps our park!</h3>
+  <p class="text-muted">Hover to explore how food brings parks back to life</p>
+</div>
+ 
+<div class="row g-4 mb-5 justify-content-center revitalize-grid hgh">
+ 
+  <div class="col-md-4">
+    <div class="rev-card rev-img-1">
+      <div class="rev-front bg-success">
+        <h5>🏞️ Revive Spaces</h5>
+        <p class="small">Turn empty parks into active places</p>
+      </div>
+      <div class="rev-back">
+        <p>Our food court attracts families, teens, and visitors, making parks safer, livelier, and more welcoming. <a href="https://www.glitter-graphics.com">
+          <img src="http://dl2.glitter-graphics.net/pub/550/550422iuv8tgsqnr.gif"
+          width=50 height=50 border=0></a></p>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="col-md-4">
+    <div class="rev-card rev-img-2">
+      <div class="rev-front bg-success">
+        <h5>🤝 Build Community</h5>
+        <p class="small">Food connects people</p>
+      </div>
+      <div class="rev-back">
+        <p>Local vendors and shared meals create social interaction and support small businesses.
+          <a href="https://www.glitter-graphics.com">
+            <img src="http://dl5.glitter-graphics.net/pub/549/549075jt0fjar5db.gif"
+            width="50" height="50" border=0></a>
+        </p>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="col-md-4">
+    <div class="rev-card rev-img-3">
+      <div class="rev-front bg-success">
+        <h5>🌍 Design Sustainably</h5>
+        <p class="small">Protect nature while serving food</p>
+      </div>
+      <div class="rev-back">
+        <p>We use eco-friendly packaging and clean layouts to respect the park environment.<a href="https://www.glitter-graphics.com">
+          <img src="http://dl4.glitter-graphics.net/pub/552/552064nfpt5u60ut.gif"
+          width=53 height=53 border=0></a>
+        </p>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+ 
+<!-- PARK REVITALIZATION TIMELINE -->
+<section class="timeline-section my-5">
+  <div class="text-center mb-5">
+    <h3 class="fw-bold">🛤️ How Food Court Revitalizes the Park</h3>
+    <p class="text-muted">from an empty space to a vibrant community</p>
+  </div>
+ 
+  <div class="timeline">
+ 
+    <div class="timeline-step left">
+      <div class="timeline-content">
+        <h5>1. The Park is Underused</h5>
+        <p>Few visitors, little activity, and no reason for people to stay long. <a href="https://www.glitter-graphics.com">
+          <img src="http://dl10.glitter-graphics.net/pub/79/79730l4d8pj2fyu.gif"
+          width=100 height=75 border=0></a>
+        </p>
+      </div>
+    </div>
+ 
+    <div class="timeline-step right">
+      <div class="timeline-content">
+        <h5>2. Food Court is Introduced</h5>
+        <p>Food stalls bring color, smell, sound, and curiosity into the park.
+          <a href="https://www.glitter-graphics.com">
+            <img src="http://dl2.glitter-graphics.net/pub/549/549072tuebtovzvn.gif"
+            width=115 height=100 border=0></a>
+        </p>
+      </div>
+    </div>
+ 
+    <div class="timeline-step left">
+      <div class="timeline-content">
+        <h5>3. People Start Gathering</h5>
+        <p>Families, teens, and tourists visit for food and stay for the space.
+          <a href="https://www.glitter-graphics.com">
+            <img src="http://dl9.glitter-graphics.net/pub/1169/1169869q8r4ujvzf1.gif"
+             width=85 height=39 border=0></a>
+        </p>
+      </div>
+    </div>
+ 
+    <div class="timeline-step right">
+      <div class="timeline-content">
+        <h5>4. Community Grows</h5>
+        <p>Vendors, artists, and visitors interact and build social life.
+          <a href="https://www.glitter-graphics.com">
+            <img src="http://dl9.glitter-graphics.net/pub/1144/1144809h63gjux6oc.gif"
+            width=90 height=69 border=0></a>
+        </p>
+      </div>
+    </div>
+ 
+    <div class="timeline-step left">
+      <div class="timeline-content">
+        <h5>5. The Park Comes Alive</h5>
+        <p>A safe, active, and sustainable public space powered by food + people.
+          <a href="https://www.glitter-graphics.com">
+            <img src="http://dl.glitter-graphics.net/pub/250/250121x9f4ez5xgq.gif"
+            width=100 height=70 border=0></a>
+        </p>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+</div>
+ 
+  <!-- Footer -->
+  <footer class="pt-5 pb-4  border-top">
+    <div class="container text-center text-md-start">
+      <div class="row">
+
+        <!-- About Section -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <div class="d-flex align-items-center mb-3 footer-brand">
+            <img src="logo.png" alt="Green Aliens Logo" class="footer-logo">
+            <h5 class="fw-bold mb-0 footer-title">Green Aliens</h5>
+          </div>
+          <p class="footer-text">
+            A hub for park activities and positive change. Join events, volunteer your time, and help transform our park into a vibrant space for everyone.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Quick Links</h6>
+
+          <p><a href="index.html" class="footer-link">Home</a></p>
+          <p><a href="AboutUs.html" class="footer-link">About Us</a></p>
+
+          <!-- Activity Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Activity
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+              <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+              <li><a class="dropdown-item" href="Meditation.html">Meditation Club</a></li>
+            </ul>
+          </div>
+
+          <!-- Event Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Event
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+              <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+              <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+            </ul>
+          </div>
+
+          
+           <p><a href="volunteer.html" class="footer-link">Volunteer</a></p>
+          <p><a href="Schedule.html" class="footer-link">Schedule</a></p>
+           <p><a href="ICT reference list (1) (1).pdf" class="footer-link">Reference</a></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Contact Us</h6>
+
+          <p class="footer-text">
+            <i class="bi bi-geo-alt-fill contact-icon"></i>
+            Yangon, Myanmar
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-telephone-fill contact-icon"></i>
+            +95 9 123 456 789
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-envelope-fill contact-icon"></i>
+            thealiens@example.com
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <hr class="my-4">
+
+      <!-- Copyright -->
+      <div class="text-center">
+        <small class="footer-text">
+           © 2026 Green Aliens. All Rights Reserved.
+        </small>
+      </div>
+
+    </div>
+  </footer>
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

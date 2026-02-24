@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Renting</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#F1F8E9;
+}
+
+/* HERO */
+.hero{
+  height:70vh;
+  background: linear-gradient(rgba(0,100,60,0.5), rgba(0,100,60,0.5)),
+  url("https://napervilleparks.org/upload/Misc/parkrentalsheader.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+.hero h1{ font-size:40px; }
+.hero button{
+  background:#2e7d32;
+  border:none;
+  padding:12px 25px;
+  color:white;
+  border-radius:25px;
+}
+
+/* SECTION TITLE */
+.section-title{
+  text-align:center;
+  font-weight:bold;
+  font-size:32px;
+  color:#2e7d32;
+  margin:60px 0 40px 0;
+}
+.custom-container{ width:90%; margin:auto; }
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:30px;
+}
+
+/* CARD */
+.card{
+  position:relative;
+  height:260px;
+  border-radius:40px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:0.4s;
+}
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.4s;
+}
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+}
+.content{
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  color:white;
+  z-index:2;
+}
+.card:hover img{ transform:scale(1.1); }
+.card:hover{ transform:translateY(-8px); }
+
+/* TAB SECTION */
+.tab-section{
+  padding:20px 20px;
+  padding-top: 5%;
+  margin:auto;
+}
+.nav-tabs .nav-link{
+  color:#2e7d32;
+  font-weight:600;
+}
+.nav-tabs .nav-link.active{
+  background:#2e7d32;
+  color:white;
+  border:none;
+}
+.tab-pane-box{
+  background:white;
+  border-radius:15px;
+  padding:25px;
+  margin-top:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+.tab-content img{
+  width:100%;
+  max-height:250px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+/* PRICE TABLE */
+.price-title{
+  text-align:center;
+  font-weight:bold;
+  font-size:32px;
+  color:#2e7d32;
+  margin-bottom:25px;
+}
+.price-table-box{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+.price-table thead{
+  background:#2e7d32;
+  color:white;
+}
+.price-table tbody tr:hover{
+  background:#e8f5e9;
+}
+.price-table td, .price-table th{
+  text-align:center;
+  padding:15px;
+}
+
+/* DISCOUNT */
+.discount-title{
+  text-align:center;
+  font-size:32px;
+  font-weight:bold;
+  color:#2e7d32;
+  margin:60px 0 40px 0;
+}
+.discount-container{
+  width:90%;
+  margin:auto;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:30px;
+  padding-bottom:60px;
+}
+@media(max-width:992px){
+  .discount-container{ grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width:600px){
+  .discount-container{ grid-template-columns: 1fr; }
+}
+.discount-card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(46,125,50,0.25);
+  transition:0.4s;
+}
+.discount-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+.discount-content{
+  padding:20px;
+  text-align:center;
+}
+.discount-content h3{
+  color:#2e7d32;
+}
+.discount-card:hover{
+  transform:translateY(-10px);
+}
+.review-title{
+  color:#2e7d32;
+  font-weight:700;
+}
+
+.review-img{
+  width:160px;
+  height:160px;
+  object-fit:cover;
+  border-radius:50%;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.review-img:hover{
+  transform:scale(1.05);
+}
+
+.border-pink{ border:6px solid #ff4fa3; }
+.border-purple{ border:6px solid #8e6ce0; }
+.border-yellow{ border:6px solid #f4b400; }
+
+.review-box{
+  border:2px solid #ff4fa3;
+  border-radius:25px;
+  padding:30px;
+  background:#e8d6de;
+  position:relative;
+}
+
+.name-badge{
+  position:absolute;
+  top:-18px;
+  left:30px;
+  background:#ff4fa3;
+  color:white;
+  padding:6px 20px;
+  border-radius:20px;
+  font-weight:600;
+  font-size:14px;
+}
+/* FAQ */
+.faq-section{
+  padding:60px 20px;
+  background:#f5faf7;
+}
+.faq-container{
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+.faq-title{
+  text-align:center;
+  font-size:32px;
+  font-weight:bold;
+  margin-bottom:30px;
+  color:#2e7d32;
+}
+    footer {
+      background-color: #F1F8E9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+
+    .footer-title {
+      color: #1B5E20;
+    }
+
+    .footer-text {
+      color: #2E7D32;
+    }
+
+    .footer-link {
+      color: #2E7D32;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-link:hover {
+      color: #1B5E20;
+      padding-left: 5px;
+    }
+
+    .dropdown-menu {
+      background-color: #C8E6C9;
+      border: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: #66BB6A;
+      color: white;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    hr {
+      border-color: #C8E6C9;
+    }
+        .hero-section {
+      margin-top: 120px; /* Prevent overlap with fixed navbar */
+      background: linear-gradient(135deg, #d4fc79, #96e6a1);
+      color: #155d27;
+      padding: 80px 0;
+      border-radius: 25px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .btn-custom {
+      background-color: #21965f;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+      background-color: #0fa866;
+      transform: translateY(-2px);
+    }
+
+    .main-img {
+      width: 100%;
+      border-radius: 25px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      .text-area {
+        text-align: center;
+      }
+    }
+      .navbar{
+    background-color: #fff;
+    height: 80px;
+    margin: 18px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.navbar-brand{
+    font-weight: 500;
+    color: #12d379;
+    font-size: 24px;
+
+}
+.login-button{
+    background-color: #12d379;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.login-button:hover{
+    background-color: #59b688;
+}
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close{
+    box-shadow: none;
+    outline: none;
+}
+.nav-link{
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active{
+    color: black;
+}
+@media(min-width: 991px){
+    .nav-link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #12d379;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-link:hover::before, .nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+
+
+}
+@media (max-width: 768px) {
+
+  .footer-brand {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .footer-brand h5 {
+    text-align: center;
+  }
+
+}
+/* Change active accordion header color */
+.accordion-button:not(.collapsed) {
+  background-color: #c8e6c9;   /* your new color */
+  color: #2e7d32;              /* text color */
+  box-shadow: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<nav class="navbar navbar-expand-lg  fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto d-flex" href="#">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5>
+                <a>
+                <div class="offcanvas offcanvas-end"  id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                
+                <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="AboutUs.html">About Us</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Activity
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+                                    <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+                                    <li><a class="dropdown-item" href="Meditation.html">Meditation</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Event
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+                                    <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+                                    <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="volunteer.html">Volunteer</a>
+                            </li>
+
+                           <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="Schedule.html">Schedule</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="Login.html">Log in</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="SignUp.html">Sign Up</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="ContactUs.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-lg-6 text-area">
+        <h1>FIND YOUR <br>PERFECT EVENT SPACE </h1>
+
+        <div class="mt-4">
+          <h6 class="fw-bold">--------------</h6>
+          <p>
+            Host your events in a beautiful park setting surrounded by nature. Whether it’s a birthday, community gathering, or small celebration, enjoy fresh air, green scenery, and a peaceful atmosphere for your special moments.
+          </p>
+          <a href="#meditation" class="btn btn-custom">Explore</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mt-4 mt-lg-0">
+        <img src="https://i.pinimg.com/1200x/10/29/ca/1029ca636f6c85a6294fe717b4efe555.jpg"
+             class="main-img shadow"
+             alt="">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- RENTING CARDS -->
+<section>
+  <div class="custom-container" id="meditation">
+    <h2 class="section-title">Explore Our Renting Places</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/47/33/d8/4733d8f7844035161023c7388a398e65.jpg">
+        <div class="content">
+          <h3>State Show renting</h3>
+          <p>You can rent our state show for special events or school activities ></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://res.cloudinary.com/simpleview/image/upload/v1539031128/clients/austin/Fair_Market_Full_Usage_Permissions_Photo_Credit_Nick_Simonite_2__7702f0ed-fc51-4927-8ab1-4cfc41825c40.jpg">
+        <div class="content">
+          <h3>Eating part renting</h3>
+          <p>You can rent our eating part if you have birthday party or spcial events ></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn.prod.website-files.com/64ad227a3e66387fc5d89320/65e6904752b0a2c5fb492a89_Island%20Park%20Wedding.png">
+        <div class="content">
+          <h3>Outdoor wedding renting</h3>
+          <p>You can rent our outdoor wedding if you want to get good picture for your special wedding ></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAB SECTION -->
+
+
+<section class="faq-section">
+  <div class="faq-container">
+    <h2 class="faq-title">Types of rentings</h2>
+
+    <div class="accordion" id="accordionExample">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+            Level 1
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Rening only for the place. You have to do everything by yourself. We will only rent the place.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+            Level 2
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            We will prepare the food that you request. You don't need to look back for food and place.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+            VIP
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+           We will do everthing details for you including food, dress, decoration, place and special presents.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- TABLE -->
+<div class="container my-5">
+  <h2 class="price-title">Our Prices</h2>
+
+  <div class="price-table-box">
+    <div class="table-responsive price-table">
+      <table class="table table-bordered align-middle mb-0">
+        
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Myanmar Kyats</th>
+            <th>US Dollar $</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><b>Level 1</b></td>
+            <td>3,000,000 Ks</td>
+            <td>$1,000</td>
+          </tr>
+
+          <tr>
+            <td><b>Level 2</b></td>
+            <td>5,000,000 Ks</td>
+            <td>$2,381.46</td>
+          </tr>
+
+          <tr>
+            <td><b>VIP</b></td>
+            <td>50,000,000 Ks</td>
+            <td>$71,447.20</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TITLE -->
+<h2 class="discount-title">Our Coming Thingyan Discount</h2>
+
+<!-- CARDS -->
+<div class="discount-container">
+
+  <div class="discount-card">
+    <img src="https://i.pinimg.com/736x/eb/a5/f9/eba5f9a8feabc71ff533f775bfc1b072.jpg">
+    <div class="discount-content">
+      <h3>Wedding Discount</h3>
+      <p>Get 20% off for outdoor wedding bookings this season.</p>
+    </div>
+  </div>
+
+  <div class="discount-card">
+    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622">
+    <div class="discount-content">
+      <h3>Birthday Package</h3>
+      <p>Book Level 2 service and get free decoration upgrade.</p>
+    </div>
+  </div>
+
+  <div class="discount-card">
+    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30">
+    <div class="discount-content">
+      <h3>VIP Special Offer</h3>
+      <p>VIP bookings get special gift packages for limited time.</p>
+    </div>
+  </div>
+
+</div>
+
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center review-title mb-5">Our Reviews</h2>
+
+    <!-- Review 1 -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-3 text-center">
+        <img src="https://www.foreverweddingstudio.com/wp-content/uploads/2018/12/shwe-shwe3.jpg"
+             class="review-img border-pink"
+             data-bs-toggle="collapse"
+             data-bs-target="#review1">
+      </div>
+
+      <div class="col-md-9">
+        <div class="collapse show" id="review1">
+          <div class="review-box">
+            <div class="name-badge">Nay Nadi Aung</div>
+            <p>
+              I did my wedding party here in this park. I rent for VIP service.
+              All the people in this service are kind and really care for their customers.
+              The price is really fair.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-3 text-center">
+        <img src="https://thumbs.dreamstime.com/b/young-burmese-woman-holding-red-umbrella-u-bein-bridge-mandalay-myanmar-space-text-young-burmese-woman-holding-red-243241355.jpg"
+             class="review-img border-purple"
+             data-bs-toggle="collapse"
+             data-bs-target="#review2">
+      </div>
+
+      <div class="col-md-9">
+        <div class="collapse" id="review2">
+          <div class="review-box" style="border-color:#8e6ce0;background:#e3dcf6;">
+            <div class="name-badge" style="background:#8e6ce0;">Su Yee</div>
+            <p>
+              I am Stella's mother and I rent Level 2 service for my daughter's birthday party.
+              The place is really clean and the food they prepared are delicious.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-3 text-center">
+        <img src="https://media.istockphoto.com/id/1207968936/photo/young-asian-woman-portrait-smiling-with-crossed-arms-happy-feeling-in-brown-sweater.jpg?s=612x612&w=0&k=20&c=vyj-y0WF6r2Vpv2rMbDOmzhVDVx5GkYNjBIb0KsVqrA="
+             class="review-img border-yellow"
+             data-bs-toggle="collapse"
+             data-bs-target="#review3">
+      </div>
+
+      <div class="col-md-9">
+        <div class="collapse" id="review3">
+          <div class="review-box" style="border-color:#f4b400;background:#fff2cc;">
+            <div class="name-badge" style="background:#f4b400;">Lin Latt</div>
+            <p>
+              I rent level 1 service. I just rent for the place and had a party with my friends.
+              Even though I only rent for the place, it is clean and has good views.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="footer-section">
+  <footer class="pt-5 pb-4 border-top">
+        <div class="container text-center text-md-start">
+      <div class="row">
+
+        <!-- About Section -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <div class="d-flex align-items-center mb-3 footer-brand">
+            <img src="logo.png" alt="Green Aliens Logo" class="footer-logo">
+            <h5 class="fw-bold mb-0 footer-title">Green Aliens</h5>
+          </div>
+          <p class="footer-text">
+            A hub for park activities and positive change. Join events, volunteer your time, and help transform our park into a vibrant space for everyone.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Quick Links</h6>
+
+          <p><a href="index.html" class="footer-link">Home</a></p>
+          <p><a href="AboutUs.html" class="footer-link">About Us</a></p>
+
+          <!-- Activity Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Activity
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+              <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+              <li><a class="dropdown-item" href="Meditation.html">Meditation Club</a></li>
+            </ul>
+          </div>
+
+          <!-- Event Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Event
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+              <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+              <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+            </ul>
+          </div>
+
+          
+           <p><a href="volunteer.html" class="footer-link">Volunteer</a></p>
+          <p><a href="Schedule.html" class="footer-link">Schedule</a></p>
+           <p><a href="ICT reference list (1) (1).pdf" class="footer-link">Reference</a></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Contact Us</h6>
+
+          <p class="footer-text">
+            <i class="bi bi-geo-alt-fill contact-icon"></i>
+            Yangon, Myanmar
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-telephone-fill contact-icon"></i>
+            +95 9 123 456 789
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-envelope-fill contact-icon"></i>
+            thealiens@example.com
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <hr class="my-4">
+
+      <!-- Copyright -->
+      <div class="text-center">
+        <small class="footer-text">
+           © 2026 Green Aliens. All Rights Reserved.
+        </small>
+      </div>
+
+    </div>
+  </footer>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+

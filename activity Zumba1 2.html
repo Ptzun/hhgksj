@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zumba</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body {
+  background: #f6fff9;
+  color: #333;
+}
+
+/* GLOBAL TITLES GREEN */
+h1, h2, h3 {
+  color: #2e7d32;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("https://cdn.digitalagencybangkok.com/file/client-cdn/gnlm/wp-content/uploads/2025/12/22-12-2025-kijm-11-720x404.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 8%;
+  text-align: center;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* FEATURES */
+.features {
+  padding: 70px 20px;
+  text-align: center;
+  background: #f0fff6;
+}
+
+.feature-box {
+  display: inline-block;
+  width: 260px;
+  background: #fff;
+  margin: 18px;
+  padding: 28px;
+  border-radius: 18px;
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.feature-box:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* TRAINER TITLE */
+.trainer-title {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+/* ABOUT TRAINERS */
+.about {
+  padding: 40px 8% 70px 8%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  background: #f7fffb;
+}
+
+.about-text {
+  max-width: 300px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.about-text:nth-child(1) { animation-delay: 0.2s; }
+.about-text:nth-child(2) { animation-delay: 0.4s; }
+.about-text:nth-child(3) { animation-delay: 0.6s; }
+
+.about img {
+  width: 260px;
+  border-radius: 45% 55% 46% 55% / 0% 58% 0% 56%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.about-text h2 { font-size: 22px; }
+.about-text p { font-size: 15px; }
+
+/* BENEFITS */
+.benefits {
+  padding: 70px 20px;
+  background: #e8f5e9;
+  text-align: center;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.benefits-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 16px 24px;
+  border-radius: 14px;
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.benefits-image img {
+  max-height: 420px;
+  width: auto;
+  border-radius: 18px;
+}
+
+/* BLOG */
+.blog {
+  background: #eefaf0;
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.blog-card {
+  display: inline-block;
+  width: 260px;
+  background: #fff;
+  margin: 18px;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.blog-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.blog-card p {
+  padding: 16px;
+  font-weight: 400;
+}
+
+/* ZUMBA SECTION */
+.zumba-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.zumba-title {
+  color: green;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.zumba-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.zumba-box {
+  flex: 1;
+  min-width: 250px;
+}
+
+.zumba-box img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin: 15px 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.zumba-box img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.zumba-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* SUMMARY BOX */
+.summary-box {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.35s ease;
+}
+
+.summary-box:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ANIMATION */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about img {
+    width: 200px;
+  }
+
+  .feature-box, .blog-card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .feature-box, .blog-card, .zumba-box {
+    width: 95%;
+    margin: 15px auto;
+  }
+
+  .summary-box {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .zumba-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about {
+    padding: 20px 5%;
+    gap: 20px;
+  }
+}
+.navbar{
+    background-color: #fff;
+    height: 80px;
+    margin: 18px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.navbar-brand{
+    font-weight: 500;
+    color: #12d379;
+    font-size: 24px;
+
+}
+.login-button{
+    background-color: #12d379;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.login-button:hover{
+    background-color: #59b688;
+}
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close{
+    box-shadow: none;
+    outline: none;
+}
+.nav-link{
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active{
+    color: black;
+}
+@media(min-width: 991px){
+    .nav-link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #12d379;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-link:hover::before, .nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+
+
+}
+    footer {
+      background-color: #F1F8E9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .footer-title {
+      color: #1B5E20;
+    }
+
+    .footer-text {
+      color: #2E7D32;
+    }
+
+    .footer-link {
+      color: #2E7D32;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-link:hover {
+      color: #1B5E20;
+      padding-left: 5px;
+    }
+
+    .dropdown-menu {
+      background-color: #C8E6C9;
+      border: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: #66BB6A;
+      color: white;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    hr {
+      border-color: #C8E6C9;
+    }
+        .hero-section {
+      margin-top: 120px; /* Prevent overlap with fixed navbar */
+      background: linear-gradient(135deg, #d4fc79, #96e6a1);
+      color: #155d27;
+      padding: 80px 0;
+      border-radius: 25px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .btn-custom {
+      background-color: #21965f;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+      background-color: #0fa866;
+      transform: translateY(-2px);
+    }
+
+    .main-img {
+      width: 100%;
+      border-radius: 25px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      .text-area {
+        text-align: center;
+      }
+    }
+    @media (max-width: 768px) {
+
+  .footer-brand {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .footer-brand h5 {
+    text-align: center;
+  }
+
+}
+      .title {
+    font-weight: 700;
+    text-align: center;
+  }
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: currentColor;
+    border-radius: 10px;
+  }
+
+  .step {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .challenge {
+    color: #d9534f;
+  }
+
+  .challenge .circle {
+    background: #d9534f;
+  }
+
+  .solution {
+    color: #5cb85c;
+  }
+
+  .solution .circle {
+    background: #5cb85c;
+  }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg  fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto d-flex" href="#">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5> 
+                <a>
+                <div class="offcanvas offcanvas-end"  id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                
+                <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="AboutUs.html">About Us</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Activity
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+                                    <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+                                    <li><a class="dropdown-item" href="Meditation.html">Meditation</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Event
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+                                    <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+                                    <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="volunteer.html">Volunteer</a>
+                            </li>
+
+                           <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="Schedule.html">Schedule</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="Login.html">Log in</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="SignUp.html">Sign Up</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="ContactUs.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-lg-6 text-area">
+        <h1>💃 FIND YOUR <br>RHYTHM</h1>
+
+        <div class="mt-4">
+          <h6 class="fw-bold">--------------</h6>
+          <p>
+            Feel the energy and move your body with exciting Zumba sessions in the heart of nature. Enjoy upbeat music, fun dance routines, and a vibrant community atmosphere to boost your fitness, confidence, and happiness.
+          </p>
+          <a href="#meditation" class="btn btn-custom">Explore</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mt-4 mt-lg-0">
+        <img src="https://cdn.digitalagencybangkok.com/file/client-cdn/gnlm/wp-content/uploads/2025/12/22-12-2025-kijm-11.jpg"
+             class="main-img shadow"
+             alt="">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <h2>Benefits & Outcomes</h2>
+
+  <div class="benefits-grid">
+    <div class="benefits-col">
+      <div class="card">🧠 Reduces stress and anxiety</div>
+      <div class="card">😊 Enhance Your Mood</div>
+      <div class="card">⚖️ Weight Loss</div>
+    </div>
+
+    <div class="benefits-image">
+      <img src="zumbenefit.jpg" alt="Benefits Image" />
+    </div>
+
+    <div class="benefits-col">
+      <div class="card">🌙 Sleep Better</div>
+      <div class="card">❤️ Improves overall health</div>
+      <div class="card">🧘 Increase Flexibility and balance</div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ZUMBA -->
+<Section class="hh">
+<div class="container py-5 overflow-hidden">
+
+  <h2 class="title mb-2">Zumba Indoor and Outdoor</h2>
+  <p class="text-center text-muted mb-5">
+    Comparing indoor and outdoor meditation 
+  </p>
+
+  <div class="row g-5">
+
+    <!-- CHALLENGES -->
+    <div class="col-md-6">
+      <h4 class="mb-4 text-danger">Zumba Indoor</h4>
+
+      <div class="timeline challenge">
+
+        <div class="step">
+          <div class="circle">01</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Limited Space Indoors</h6>
+            
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">02</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Lack of Natural Environment</h6>
+            
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">03</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Excessive sweating</h6>
+            
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">04</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Lack of Social Motivation</h6>
+            
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">05</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Low Community Engagement</h6>
+            
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="col-md-6">
+      <h4 class="mb-4 text-success">Zumba Outdoor</h4>
+
+      <div class="timeline solution">
+
+        <div class="step">
+          <div class="circle">01</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Open Park Zumba Zones</h6>
+            
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">02</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Fresh air and sunlight</h6>
+            
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">03</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Nature relaxation</h6>
+            <p class="mb-0 text-muted">
+              
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">04</div>
+          <div class="card-box">
+            <h6 class="fw-bold">More open space</h6>
+            <p class="mb-0 text-muted">
+              
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">05</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Community feeling</h6>
+            <p class="mb-0 text-muted">
+              
+            </p>
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</Section>
+
+<!-- TRAINER TITLE -->
+<h2 class="trainer-title">Meet With Our Trainers</h2>
+
+<!-- TRAINERS -->
+<div class="about">
+  <div class="about-text">
+    <img src="https://media.licdn.com/dms/image/v2/D5603AQEd6vV18lK1sA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1672721480311?e=2147483647&v=beta&t=XHsmiK_4wTmEytAYnGYSCvD-zbHDgMewatisf37IrGM" alt="Khin Cho Khine" />
+    <h2>Khin Cho Khine</h2>
+    <p>Trainer of this zumba club.</p>
+  </div>
+
+  <div class="about-text">
+    <img src="zuminstru.jpg" alt="Myo" />
+    <h2>Myo</h2>
+    <p>Trainer of this zumba club.</p>
+  </div>
+
+  <div class="about-text">
+    <img src="zum4.jpg" alt="Phyo Thri" />
+    <h2>Thinzar Cai</h2>
+    <p>Trainer of this zumba club.</p>
+  </div>
+</div>
+
+<!-- BLOG -->
+<div class="blog">
+  <h2>Why Choose Us?</h2>
+
+  <div class="blog-card">
+    <img src="https://mpt-aws-wp-bucket.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2025/12/15144439/YGN-YMO-scaled.jpg" alt="Trainer 2" />
+    <p>Train with expert trainers who are really patient and kind.</p>
+  </div>
+
+  <div class="blog-card">
+    <img src="https://i.pinimg.com/1200x/23/59/66/23596629d441ad7e451157e960b9a295.jpg" alt="Zumba Space" />
+    <p>We have a specific place to dance zumba.</p>
+  </div>
+
+  <div class="blog-card">
+    <img src="https://i.pinimg.com/1200x/68/9b/3f/689b3f80841d04ffd4c875d5b00500ce.jpg" alt="Zumba Tree" />
+    <p>Exercise surrounded by trees and natural energy.</p>
+  </div>
+</div>
+<!-- SUMMARY -->
+
+<section class="jj">
+    <footer class="pt-5 pb-4 mt-0 border-top">
+    <div class="container text-center text-md-start">
+      <div class="row">
+
+        <!-- About Section -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <div class="d-flex align-items-center mb-3 footer-brand">
+            <img src="logo.png" alt="Green Aliens Logo" class="footer-logo">
+            <h5 class="fw-bold mb-0 footer-title">Green Aliens</h5>
+          </div>
+          <p class="footer-text">
+            A hub for park activities and positive change. Join events, volunteer your time, and help transform our park into a vibrant space for everyone.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Quick Links</h6>
+
+          <p><a href="index.html" class="footer-link">Home</a></p>
+          <p><a href="AboutUs.html" class="footer-link">About Us</a></p>
+
+          <!-- Activity Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Activity
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+              <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+              <li><a class="dropdown-item" href="Meditation.html">Meditation Club</a></li>
+            </ul>
+          </div>
+
+          <!-- Event Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Event
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+              <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+              <li><a class="dropdown-item" href="renting.html">Renting</a></li>
+            </ul>
+          </div>
+
+          
+           <p><a href="volunteer.html" class="footer-link">Volunteer</a></p>
+          <p><a href="Schedule.html" class="footer-link">Schedule</a></p>
+           <p><a href="ICT reference list (1) (1).pdf" class="footer-link">Reference</a></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Contact Us</h6>
+
+          <p class="footer-text">
+            <i class="bi bi-geo-alt-fill contact-icon"></i>
+            Yangon, Myanmar
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-telephone-fill contact-icon"></i>
+            +95 9 123 456 789
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-envelope-fill contact-icon"></i>
+            thealiens@example.com
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <hr class="my-4">
+
+      <!-- Copyright -->
+      <div class="text-center">
+        <small class="footer-text">
+           © 2026 Green Aliens. All Rights Reserved.
+        </small>
+      </div>
+
+    </div>
+  </footer>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

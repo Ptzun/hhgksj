@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Page</title>
+ 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+  crossorigin="anonymous">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+
+  <style>
+ 
+    body {
+    
+    font-family: 'Poppins', sans-serif;
+
+    }
+ 
+  .navbar{
+    background-color: #fff;
+    height: 80px;
+    margin: 18px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.navbar-brand{
+    font-weight: 500;
+    color: #12d379;
+    font-size: 24px;
+
+}
+.login-button{
+    background-color: #12d379;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.login-button:hover{
+    background-color: #59b688;
+}
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close{
+    box-shadow: none;
+    outline: none;
+}
+.nav-link{
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active{
+    color: black;
+}
+@media(min-width: 991px){
+    .nav-link::before{
+         content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #12d379;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-link:hover::before, .nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+
+
+}
+ 
+     .dot-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle, rgb(50, 194, 40) 2px, transparent 3px);
+  background-size: 40px 40px;
+  animation: drift 25s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+ 
+@keyframes drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 1000px;
+  }
+}
+ 
+ 
+ 
+   .hero-lux {
+  min-height: 90vh;
+  padding: 100px 0;
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  position: relative;
+  overflow: hidden;
+}
+ 
+.hero-lux::before {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 60%);
+}
+ 
+.hero-lux .container {
+  position: relative;
+  z-index: 1;
+}
+ 
+.hero-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #cfe8dc;
+  text-transform: uppercase;
+}
+ 
+.hero-lux h1 {
+  font-family: 'Playfair Display', serif;
+  color: #287353;
+}
+ 
+.hero-lux p {
+  color: #287353;
+}
+ 
+.hero-visual {
+  background: linear-gradient(145deg, #ffffff, #dff1e3);
+  padding: 2rem;
+  border-radius:45% 55% 70% 30% / 39% 55% 45% 61%;
+  box-shadow: 0 60px 120px rgba(0,0,0,0.35);
+  transform: rotateY(-6deg) rotateX(3deg);
+  transition: 0.5s ease;
+}
+ 
+.hero-visual:hover {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.04);
+}
+ 
+.hero-badge {
+  display: inline-block;
+  background: #0e2a23;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+.hero-lux {
+  padding-top: 10%; /* was 120px */
+}
+ 
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+ 
+    .section-card, .gallery-img {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+ 
+    .section-card:hover, .gallery-img:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    }
+ 
+        footer {
+      background-color: #F1F8E9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .footer-title {
+      color: #1B5E20;
+    }
+
+    .footer-text {
+      color: #2E7D32;
+    }
+
+    .footer-link {
+      color: #2E7D32;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-link:hover {
+      color: #1B5E20;
+      padding-left: 5px;
+    }
+
+    .dropdown-menu {
+      background-color: #C8E6C9;
+      border: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: #66BB6A;
+      color: white;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    hr {
+      border-color: #C8E6C9;
+    }
+
+    .facilities-section {
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.facility-card {
+  background: white;
+  color: #67c86c;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  transition: 0.4s;
+}
+
+.facility-card:hover {
+  transform: translateY(-10px);
+}
+
+.icon-box {
+  width: 70px;
+  height: 70px;
+  background: #66bb6a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 28px;
+  color: white;
+}
+/* Section Background */
+.volunteer-section {
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative circles */
+.volunteer-section::before,
+.volunteer-section::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+}
+
+.volunteer-section::before {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+}
+
+.volunteer-section::after {
+    width: 200px;
+    height: 200px;
+    bottom: -80px;
+    right: -80px;
+}
+
+/* Glass Card */
+.volunteer-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 60px 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Title */
+.volunteer-title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #1b5e20;
+}
+
+/* Paragraph */
+.volunteer-text {
+    color: #444;
+    font-size: 1.1rem;
+    margin: 20px 0 40px;
+}
+
+/* Button */
+.volunteer-btn {
+    background-color: #1b5e20;
+    color: white;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.volunteer-btn:hover {
+    background-color: #2e7d32;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+@media (max-width: 768px) {
+
+  .footer-brand {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .footer-brand h5 {
+    text-align: center;
+  }
+
+}
+@media (max-width: 992px) {
+
+  .hero-lux {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    text-align: center;
+  }
+
+  .hero-lux h1 {
+    font-size: 3rem;
+  }
+
+  .hero-lux p {
+    font-size: 1rem;
+  }
+
+  .hero-lux .btn {
+    width: 25%;
+  }
+
+  .hero-lux img {
+    margin-top: 30px;
+    width: 90%;
+  }
+
+}
+.park-section{
+    padding:70px 0;
+    background-color: rgb(241, 238, 234);
+}
+
+/* Main Circle */
+.main-circle{
+    width:100%;
+    max-width:380px;
+    height:380px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+/* Small Circle */
+.small-circle{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid #2e8b57;
+    position:absolute;
+    bottom:-10px;
+    left:-10px;
+}
+
+/* Info Cards */
+.info-card{
+    padding:25px;
+    border-radius:18px;
+    color:white;
+    transition:0.3s ease;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+}
+
+.green-card{
+    background:#2e8b57;
+}
+
+.yellow-card{
+    background:#f4b400;
+    color:#222;
+}
+
+.activity-list li{
+    margin-bottom:10px;
+}
+
+/* MOBILE FIX */
+@media (max-width: 991px){
+
+    .park-section{
+        text-align:center;
+    }
+
+    .small-circle{
+        position:relative;
+        bottom:0;
+        left:0;
+        margin-top:-70px;
+    }
+
+    .main-circle{
+        height:320px;
+    }
+
+    .info-card{
+        margin-top:20px;
+    }
+}
+  </style>
+</head>
+ 
+<body>
+ 
+  <!--NAV-->
+ 
+ <!-- HERO -->
+
+ <!--NAV-->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto d-flex" href="#">
+                    <img src="logo.png" alt="logo"style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5>
+                <a>
+                <div class="offcanvas offcanvas-end"  id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                  <div class="d-flex">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5>
+                  </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+               
+                <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active mx-lg-2" href="index.html">Home</a>
+                            </li>
+ 
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="AboutUs.html">About Us</a>
+                            </li>
+ 
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Activities
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+                                    <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+                                    <li><a class="dropdown-item" href="Meditation.html">Meditation club</a></li>
+                                </ul>
+                            </li>
+ 
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Events
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+                                    <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+                                    <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+                                </ul>
+                            </li>
+ 
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="volunteer.html">Volunteer</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="Schedule.html">Schedule</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="Login.html">Log in</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="SignUp.html">Sign Up</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="ContactUs.html">Contact Us</a>
+                            </li>
+                            </ul>
+                    </div>
+                </div>
+                <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+            </div>
+        </nav>
+
+ <section id="home" class="hero-lux">
+    <div class="dot-bg"></div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <!-- TEXT SIDE -->
+      <div class="col-lg-6 text-white">
+        
+ 
+        <h1 class="display-5 fw-bold mt-3">
+          Welcome to  <br>
+          Our Green Space 
+        </h1>
+ 
+        <p class="lead mt-4">
+          <b>Our space is created to promote well-being, connection, and positive experiences for families, friends, and visitors of all ages.</b>
+        </p>
+ 
+        <div class="mt-4">
+          <a href="#hom" class="btn btn-success rounded-pill px-4 me-2">Explore</a>
+        </div>
+      </div>
+ 
+      <!-- IMAGE-->
+      <div class="col-lg-6 text-center">
+        <div class="">
+          <img src="https://i.pinimg.com/1200x/e1/a8/76/e1a8768c3902d0afd74557d4a7cd6217.jpg" class="img-fluid" style="border-radius: 80% 20% 78% 22% / 21% 78% 22% 79% ;" alt="Park design concept">
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+
+ <section class="park-section">
+<div class="container">
+<div class="row align-items-center">
+
+    <!-- Left Image Section -->
+    <div class="col-lg-5 position-relative mb-4 mb-lg-0 text-center">
+        <img src="https://i.pinimg.com/1200x/72/b0/6a/72b06a535009979efcc0e8fd9f7427a1.jpg" class="main-circle">
+        <img src="https://i.pinimg.com/1200x/23/59/66/23596629d441ad7e451157e960b9a295.jpg" class="small-circle">
+    </div>
+
+    <!-- Middle Content -->
+    <div class="col-lg-4 mb-4 mb-lg-0">
+        <h2 class="fw-bold mb-3">How Parks Improve Our Well-Being</h2>
+        <p class="text-muted">
+            Parks create a balanced environment that improves mental, physical, and social well-being. 
+            They provide safe and enjoyable spaces for exercise, relaxation, and community activities.
+        </p>
+
+        <ul>
+            <li>Reduce stress and improve mental health</li>
+            <li>Encourage physical activity and fitness</li>
+            <li>Provide space for recreation and social bonding</li>
+        </ul>
+    </div>
+
+    <!-- Right Side Cards -->
+    <div class="col-lg-3">
+        <div class="info-card green-card mb-4">
+            <h5 class="fw-bold">Mental Well-Being</h5>
+            <p>Spending time in nature reduces anxiety, improves mood, and increases focus.</p>
+        </div>
+
+        <div class="info-card yellow-card">
+            <h5 class="fw-bold">Physical & Recreation</h5>
+            <p>Parks support exercise, sports, walking, and outdoor activities for all ages.</p>
+        </div>
+    </div>
+
+</div>
+</div>
+</section>
+ 
+
+ 
+<!-- ABOUT -->
+<section id="hom" class="py-5">
+  <div class="container">
+    <div class="row text-center mb-4">
+      <h2>Our Daily Activity</h2>
+      <p class="text-muted">Here is what we provide for daily activity</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Yoga -->
+      <div class="col-md-4">
+        <a href="yoga.html" class="text-decoration-none text-dark">
+          <div class="section-card p-4 shadow-sm rounded-4 h-100">
+            <h5>🧘 Yoga</h5>
+            <p>Improves flexibility, balance, and strength while reducing stress and promoting relaxation.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Zumba -->
+      <div class="col-md-4">
+        <a href="activity Zumba1 2.html" class="text-decoration-none text-dark">
+          <div class="section-card p-4 shadow-sm rounded-4 h-100">
+            <h5>💃 Zumba</h5>
+            <p>Boosts heart health, energy, and coordination through fun, high-energy dance workouts.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Meditation -->
+      <div class="col-md-4">
+        <a href="Meditation.html" class="text-decoration-none text-dark">
+          <div class="section-card p-4 shadow-sm rounded-4 h-100">
+            <h5>🧘 Meditation</h5>
+            <p>Promotes calmness, focus, and emotional balance in a peaceful outdoor setting.</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+ 
+<section class="facilities-section py-5">
+  <div class="container text-center">
+
+    <!-- Section Title -->
+    <p class="text-uppercase fw-semibold small text-success">Our Park Services</p>
+    <h2 class="fw-bold mb-5">Facilities & Services</h2>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- Food Court -->
+      <div class="col-md-4">
+        <div class="facility-card p-4">
+          <div class="icon-box mb-3">
+            <i class="bi bi-cup-hot-fill"></i>
+          </div>
+          <h5 class="fw-bold">Food Court</h5>
+          <p class="text-muted small">
+            Enjoy healthy snacks and local food vendors in a clean and welcoming environment.
+          </p>
+        </div>
+      </div>
+
+      <!-- Rental Space -->
+      <div class="col-md-4">
+        <div class="facility-card p-4">
+          <div class="icon-box mb-3">
+            <i class="bi bi-calendar-event-fill"></i>
+          </div>
+          <h5 class="fw-bold">Rental Space</h5>
+          <p class="text-muted small">
+            Open spaces for celebrations, community events, and special gatherings.
+          </p>
+        </div>
+      </div>
+
+      <!-- Relaxation Area -->
+      <div class="col-md-4">
+        <div class="facility-card p-4">
+          <div class="icon-box mb-3">
+            <i class="bi bi-tree-fill"></i>
+          </div>
+          <h5 class="fw-bold">Relaxation Zones</h5>
+          <p class="text-muted small">
+            Provide a calm and relaxing space for doing yoga, meditation and zumba clubs
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="volunteer-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="volunteer-card">
+                    <h2 class="volunteer-title">🌿 Become a Volunteer</h2>
+                    <p class="volunteer-text">
+                        Help us maintain and grow the park for future generations. 
+                        Join our community and make a meaningful difference today.
+                    </p>
+                    <a href="Schedule.html" class="btn volunteer-btn">View Schedule</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+  <!-- Footer -->
+  <footer class="pt-5 pb-4  border-top">
+    <div class="container text-center text-md-start">
+      <div class="row">
+
+        <!-- About Section -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <div class="d-flex align-items-center mb-3 footer-brand">
+            <img src="logo.png" alt="Green Aliens Logo" class="footer-logo">
+            <h5 class="fw-bold mb-0 footer-title">Green Aliens</h5>
+          </div>
+          <p class="footer-text">
+            A hub for park activities and positive change. Join events, volunteer your time, and help transform our park into a vibrant space for everyone.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Quick Links</h6>
+
+          <p><a href="index.html" class="footer-link">Home</a></p>
+          <p><a href="AboutUs.html" class="footer-link">About Us</a></p>
+
+          <!-- Activity Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Activity
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+              <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+              <li><a class="dropdown-item" href="Meditation.html">Meditation Club</a></li>
+            </ul>
+          </div>
+
+          <!-- Event Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Event
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+              <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+              <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+            </ul>
+          </div>
+
+          
+           <p><a href="volunteer.html" class="footer-link">Volunteer</a></p>
+          <p><a href="Schedule.html" class="footer-link">Schedule</a></p>
+          <p><a href="ICT reference list (1) (1).pdf" class="footer-link">Reference</a></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Contact Us</h6>
+
+          <p class="footer-text">
+            <i class="bi bi-geo-alt-fill contact-icon"></i>
+            Yangon, Myanmar
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-telephone-fill contact-icon"></i>
+            +95 9 123 456 789
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-envelope-fill contact-icon"></i>
+            thealiens@example.com
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <hr class="my-4">
+
+      <!-- Copyright -->
+      <div class="text-center">
+        <small class="footer-text">
+           © 2026 Green Aliens. All Rights Reserved.
+        </small>
+      </div>
+
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+  crossorigin="anonymous"></script>
+ 
+</body>
+</html>
+ 

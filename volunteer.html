@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Volunteer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <style>
+        /* Tab Card */
+        .tab-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            padding: 30px 20px;
+        }
+
+        .nav-pills .tabPane {
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 600;
+            color: #2f6f4e;
+            font-size: 0.9rem;
+        }
+
+        .nav-pills .tabPane.active {
+            background-color: #2f6f4e;
+            color: #ffffff;
+        }
+
+        .tab-content h3 {
+            color: #2f6f4e;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tab-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* Flip Card */
+        .flip-card {
+            background: transparent;
+            perspective: 1000px;
+            height: 220px; /* taller for mobile */
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s ease;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            backface-visibility: hidden;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .flip-card-front .title {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            text-align: center;
+            padding: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .flip-card-back {
+            background: #2f6f4e;
+            color: #fff;
+            transform: rotateY(180deg);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+         .why-volunteer {
+      background: #f3f8f3;
+    }
+
+    .why-card {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      background: #fff;
+    }
+
+    .why-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .why-img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .why-header {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #198754;
+      background: #fff;
+    }
+
+    .why-header:hover {
+      background: #e9f5ec;
+    }
+        /* Responsive adjustments */
+        @media (max-width: 576px) {
+            .tab-card {
+                padding: 20px 15px;
+            }
+            .tab-content h3 {
+                font-size: 1.2rem;
+            }
+            .tab-content p {
+                font-size: 0.95rem;
+            }
+            .flip-card {
+                height: 200px;
+            }
+            .flip-card-front .title {
+                font-size: 0.85rem;
+                padding: 6px;
+            }
+            .flip-card-back {
+                font-size: 0.85rem;
+                padding: 10px;
+            }
+        }
+         .navbar{
+        background-color: #fff;
+        height: 80px;
+        margin: 18px;
+        border-radius: 16px;
+        padding: 0.5rem;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .navbar-brand img{
+        width: 60px;
+    }
+
+    .login-button{
+        background-color: #12d379;
+        color: #fff;
+        font-size: 14px;
+        padding: 8px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .login-button:hover{
+        background-color: #59b688;
+    }
+
+    .navbar-toggler{
+        border: none;
+    }
+
+    .navbar-toggler:focus{
+        box-shadow: none;
+    }
+
+    .navlink1{
+        color: #666777;
+        font-weight: 500;
+        position: relative;
+    }
+
+    .navlink1:hover,
+    .navlink1.active{
+        color: #12d379;
+    }
+
+    @media(min-width: 991px){
+        .nav-link::before{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #12d379;
+            transition: 0.3s ease-in-out;
+        }
+        .navlink1:hover::before,
+        .navlink1.active::before{
+            width: 100%;
+        }
+    }
+
+    /* Hero Section */
+    .hero-section {
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  padding: 80px 0;
+}
+
+/* Text Area */
+.text-area h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1b4332; /* dark green */
+  line-height: 1.2;
+}
+
+.text-area h6 {
+  color: #2d6a4f;
+  letter-spacing: 1px;
+}
+
+.text-area p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+/* Custom Button */
+.btn-custom {
+  background-color: #2d6a4f;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+.btn-custom:hover {
+  background-color: #1b4332;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Image Styling */
+.main-img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .hero-section {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .text-area h1 {
+    font-size: 2.2rem;
+  }
+
+  .text-area p {
+    margin: 0 auto;
+  }
+
+  .btn-custom {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .text-area h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-img {
+    max-height: 300px;
+  }
+}
+    .section-volunteer {
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    padding: 80px 0;
+}
+
+.circle-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid white;
+    transition: transform 0.3s ease;
+}
+
+.circle-img:hover {
+    transform: scale(1.05);
+}
+
+.volunteer-title {
+    color: rgb(22, 156, 64);
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-top: 25px;
+}
+
+.volunteer-text {
+    color: rgb(22, 156, 64);
+    font-size: 14px;
+}
+ footer {
+      background-color: #F1F8E9;
+      
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .footer-title {
+      color: #1B5E20;
+    }
+
+    .footer-text {
+      color: #2E7D32;
+    }
+
+    .footer-link {
+      color: #2E7D32;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-link:hover {
+      color: #1B5E20;
+      padding-left: 5px;
+    }
+
+    .dropdown-menu {
+      background-color: #C8E6C9;
+      border: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: #66BB6A;
+      color: white;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    hr {
+      border-color: #C8E6C9;
+    }
+       .carousel-item {
+      padding: 40px 15px;
+    }
+
+    .carousel-content {
+      background: white;
+      border-radius: 25px;
+      padding: 40px 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .carousel-content h3 {
+      color: #2e7d32;
+      font-weight: 700;
+    }
+
+    
+
+    /* Indicators */
+    .carousel-indicators [data-bs-target] {
+      background-color: #2e7d32;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .vol{
+      color: #159560;
+      text-shadow: #444;
+    }
+
+    /* Responsive Improvements */
+    @media (max-width: 576px) {
+      .carousel-content {
+        padding: 25px 20px;
+      }
+    }
+    @media (max-width: 768px) {
+
+  .footer-brand {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .footer-brand h5 {
+    text-align: center;
+  }
+
+}
+    
+    </style>
+  </head>
+  <body>
+    
+<nav class="navbar navbar-expand-lg  fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto d-flex" href="#">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5>
+                <a>
+                <div class="offcanvas offcanvas-end"  id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                
+                <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link navlink1  mx-lg-2" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link navlink1 mx-lg-2" href="AboutUs.html">About Us</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link navlink1 dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Activity
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+                                    <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+                                    <li><a class="dropdown-item" href="Meditation.html">Meditation</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link navlink1 dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Event
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+                                    <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+                                    <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active navlink1 mx-lg-2" href="volunteer.html">Volunteer</a>
+                            </li>
+
+                            
+                            <li class="nav-item">
+                                <a class="nav-link navlink1 mx-lg-2" href="Schedule.html">Schedule</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="Login.html">Log in</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="SignUp.html">Sign Up</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link navlink1 mx-lg-2" href="ContactUs.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center mt-5">
+
+      <div class="col-lg-6 text-area">
+        <h1>🌱 Become a<br> Park Volunteer!</h1>
+
+        <div class="mt-4">
+          <h6 class="fw-bold">JOIN THE MOVEMENT</h6>
+          <p>
+            Help keep our parks clean, green, and welcoming for everyone. Work alongside others, build teamwork skills, support community health, and make a real difference in your neighborhood.
+          </p>
+          <a href="#mvolun" class="btn btn-custom mt-3">Explore</a>
+           <a href="Schedule.html" class="btn btn-custom mt-3">Check Schedule</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mt-4 mt-lg-0">
+        <img src="https://i.pinimg.com/1200x/67/29/46/6729468e1d3badd885a44657e03cb0d0.jpg"
+             class="main-img shadow"
+             alt="">
+      </div>
+
+    </div>
+  </div>
+</section>
+    <div  id="mvolun" class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+
+                <div class="tab-card text-center">
+
+                    <!-- Tabs -->
+                    <ul class="nav nav-pills justify-content-center mb-4" role="tablist">
+                        <li class="nav-item">
+                            <button class="nav-link active tabPane" data-bs-toggle="pill" data-bs-target="#mission">
+                                Mission
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link tabPane" data-bs-toggle="pill" data-bs-target="#vision">
+                                Vision
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+
+                        <div class="tab-pane fade show active" id="mission">
+                            <h3>Our Mission</h3>
+                            <p>
+                                To keep our local parks clean, safe, and welcoming by bringing
+                                volunteers together to reduce litter, care for green spaces,
+                                and promote responsible behavior among park visitors.
+                            </p>
+                        </div>
+
+                        <div class="tab-pane fade" id="vision">
+                            <h3>Our Vision</h3>
+                            <p>
+                                A vibrant, clean, and green park that attracts everyone—families,
+                                children, and visitors—to relax, connect, and enjoy a safe,
+                                beautiful environment that the community proudly cares for together.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="text-center mb-4">
+            <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
+                <h3 class="fw-bold mb-0">What’s Happening in Our Park?</h3>
+                <a href="https://www.glitter-graphics.com">
+                    <img src="http://dl7.glitter-graphics.net/pub/982/982477uqvc9qzqub.gif" width=100 height=80 border=0 font-size="12px">
+                </a>
+            </div>
+            <p class="text-muted mt-2">Hover on each card to learn more</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Plants -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.squarespace-cdn.com/content/v1/674a0f7359c5d57a03afa5a4/06fb0e41-ad05-44c5-81d9-4ba4546f887f/dry-garden-mallorca-sustinable.jpg">
+                            <div class="title">Dry Plants & Flowers</div>
+                        </div>
+                        <div class="flip-card-back">
+                            Many plants are drying out due to lack of care, watering, and protection.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trees -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://www.davey.com/media/5n4mswuq/sooty-canker_sycamore_las-vegas_lburkhart.jpg?rmode=max&width=407&height=305">
+                            <div class="title">Dry Trees</div>
+                        </div>
+                        <div class="flip-card-back">
+                            Trees have broken branches that may cause safety risks if not maintained.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Litter -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2017/04/IMG_6654-e1491154247246.jpg">
+                            <div class="title">Litter & Waste</div>
+                        </div>
+                        <div class="flip-card-back">
+                            Trash is often left behind, making the park unhealthy and unpleasant.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Broken Branches -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://t3.ftcdn.net/jpg/05/33/70/12/360_F_533701257_HCnr7lTTfKzOkxI2TsBl195qhwlWta7A.jpg">
+                            <div class="title">Broken Branches</div>
+                        </div>
+                        <div class="flip-card-back">
+                            Many park benches are damaged or unstable, making them unsafe and uncomfortable for visitors to rest.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="why-volunteer py-5">
+  <div class="container py-5">
+
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">What Volunteers Have to Do?</h2>
+      <p class="text-muted">Click each photo to discover how these activities can make a different changes to the park</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Card 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="why-card">
+            <img src="https://coinventmediastorage.blob.core.windows.net/media-storage-container/gphoto_ChIJaYTGDHTrwTAR2SWAhffA68w_0.jpg" class="why-img">
+            <div class="why-header" data-bs-toggle="collapse" data-bs-target="#health">
+                🌸 Make the Park More Beautiful
+            </div>
+            <div class="collapse" id="health">
+                <div class="p-3 text-muted">Volunteers can plant flowers, trim trees, and decorate green spaces to create a colourful and welcoming environment.</div>
+            </div>
+            </div>
+        </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="why-card">
+          <img src="https://i.pinimg.com/736x/92/8e/ba/928eba09d591137064ef6ffd3ee4002f.jpg" class="why-img">
+          <div class="why-header" data-bs-toggle="collapse" data-bs-target="#nature">
+            🧹 Keep the Park Clean & Fresh
+          </div>
+          <div class="collapse" id="nature">
+            <div class="p-3 text-muted">
+              Regular clean-up activities help remove litter, protect nature, and make the park look neat and attractive.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="why-card">
+          <img src="https://media.istockphoto.com/id/1270422507/photo/painting-a-wooden-bench-with-protective-weather-resistant-paint-the-womans-hand-applies-a.jpg?s=612x612&w=0&k=20&c=u1XPVdmDDCxUXxDZy13R6vCUEUzuNaySaztTedhlk5M=" class="why-img">
+          <div class="why-header" data-bs-toggle="collapse" data-bs-target="#skills">
+            🎨 Repair & Repaint Facilities
+          </div>
+          <div class="collapse" id="skills">
+            <div class="p-3 text-muted">
+             Painting benches, fixing signs, and maintaining exercise equipment make the park look new and well cared for.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-12 col-md-6">
+        <div class="why-card">
+          <img src="https://i.pinimg.com/1200x/4d/0e/03/4d0e030c20467dc1291d597f79a6cd56.jpg" class="why-img">
+          <div class="why-header" data-bs-toggle="collapse" data-bs-target="#community">
+            🌿 Create a Relaxing Environment
+          </div>
+          <div class="collapse" id="community">
+            <div class="p-3 text-muted">
+             Adding plants, improving landscaping, and organising spaces makes the park peaceful and enjoyable for visitors.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-12 col-md-6">
+        <div class="why-card">
+          <img src="https://i.pinimg.com/736x/ac/bc/88/acbc885b7b3b5e5b807b25ccc79f8467.jpg" class="why-img">
+          <div class="why-header" data-bs-toggle="collapse" data-bs-target="#kids">
+            🌎 Promote Environmental Awareness
+          </div>
+          <div class="collapse" id="kids">
+            <div class="p-3 text-muted">
+              Display educational posters about protecting nature to encourage responsible behaviour.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Hero -->
+
+
+<!-- Carousel -->
+<div class="container py-5">
+  <h2 class="text-center mb-4 vol"><b>How Volunteering Contribute The Park?</b></h2>
+  <div id="parkCarousel" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#parkCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#parkCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#parkCarousel" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#parkCarousel" data-bs-slide-to="3"></button>
+    </div>
+
+    <div class="carousel-inner text-center">
+
+      <div class="carousel-item active">
+        <div class="carousel-content">
+          <h3>Improve Cleanliness</h3>
+          <p class="mt-3">
+            Volunteers organize clean-up events, remove litter and repaint facilities,
+            creating a safer and more welcoming park environment.
+          </p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="carousel-content">
+          <h3>Repair & Maintain Equipment</h3>
+          <p class="mt-3">
+            Community members help report damages and assist in maintenance,
+            keeping playground and exercise equipment safe and usable.
+          </p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="carousel-content">
+          <h3>Plant Trees & Flowers</h3>
+          <p class="mt-3">
+            Tree-planting and gardening projects enhance beauty, improve air quality,
+            and provide shade for visitors.
+          </p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="carousel-content">
+          <h3>Increase Visitor Numbers</h3>
+          <p class="mt-3">
+            A clean and attractive park encourages more families, students,
+            and community members to visit regularly.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    
+  </div>
+</div>
+
+<section class="section-volunteer text-center">
+<div class="container">
+
+    <h2 class="text-white mb-5 fw-bold">Who Can Join the Volunteer?</h2>
+
+    <div class="row justify-content-center">
+
+        <!-- Card 1 -->
+        <div class="col-md-4 mb-5">
+            <img src="https://st4.depositphotos.com/11953928/25902/v/450/depositphotos_259021260-stock-illustration-young-people-friends-cartoon.jpg" class="circle-img" alt="Students">
+            <h5 class="volunteer-title">STUDENTS & YOUTH</h5>
+            <p class="volunteer-text">
+                Every student has a responsibility to care for the environment. 
+                Young people can join to build leadership skills and help improve the community.
+            </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4 mb-5">
+            <img src="https://thumbs.dreamstime.com/b/cartoon-family-portrait-happy-parents-children-together-isolated-white-cheerful-illustration-five-embracing-smiling-378550759.jpg" class="circle-img" alt="Families">
+            <h5 class="volunteer-title">FAMILIES & ADULTS</h5>
+            <p class="volunteer-text">
+                Everyone has a responsibility to protect public spaces. 
+                Families and adults can volunteer together to create a cleaner, safer park.
+            </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4 mb-5">
+            <img src="https://image.slidesharecdn.com/asenseofcommunity-220911224502-f80a68af/75/A-sense-of-community-pptx-1-2048.jpg" class="circle-img" alt="Community Members">
+            <h5 class="volunteer-title">COMMUNITY MEMBERS</h5>
+            <p class="volunteer-text">
+                Every community member shares the responsibility of maintaining local parks. 
+                By volunteering, we work together to keep our environment green and welcoming.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+</section>
+<section class="jj">
+    <footer class="pt-5 pb-4 mt-0 border-top">
+    <div class="container text-center text-md-start">
+      <div class="row">
+
+        <!-- About Section -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <div class="d-flex align-items-center mb-3 footer-brand">
+            <img src="logo.png" alt="Green Aliens Logo" class="footer-logo">
+            <h5 class="fw-bold mb-0 footer-title">Green Aliens</h5>
+          </div>
+          <p class="footer-text">
+            A hub for park activities and positive change. Join events, volunteer your time, and help transform our park into a vibrant space for everyone.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Quick Links</h6>
+
+          <p><a href="index.html" class="footer-link">Home</a></p>
+          <p><a href="AboutUs.html" class="footer-link">About Us</a></p>
+
+          <!-- Activity Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Activity
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+              <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+              <li><a class="dropdown-item" href="Meditation.html">Meditation Club</a></li>
+            </ul>
+          </div>
+
+          <!-- Event Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Event
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+              <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+              <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+            </ul>
+          </div>
+
+          
+           <p><a href="volunteer.html" class="footer-link">Volunteer</a></p>
+          <p><a href="Schedule.html" class="footer-link">Schedule</a></p>
+           <p><a href="ICT reference list (1) (1).pdf" class="footer-link">Reference</a></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Contact Us</h6>
+
+          <p class="footer-text">
+            <i class="bi bi-geo-alt-fill contact-icon"></i>
+            Yangon, Myanmar
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-telephone-fill contact-icon"></i>
+            +95 9 123 456 789
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-envelope-fill contact-icon"></i>
+            thealiens@example.com
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <hr class="my-4">
+
+      <!-- Copyright -->
+      <div class="text-center">
+        <small class="footer-text">
+           © 2026 Green Aliens. All Rights Reserved.
+        </small>
+      </div>
+
+    </div>
+  </footer>
+</section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

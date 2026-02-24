@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meditation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  
+  <style>
+    .navbar{
+    background-color: #fff;
+    height: 80px;
+    margin: 18px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+body{
+  overflow-x: hidden;
+}
+.navbar-brand{
+    font-weight: 500;
+    color: #12d379;
+    font-size: 24px;
+
+}
+
+.login-button{
+    background-color: #12d379;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.login-button:hover{
+    background-color: #59b688;
+}
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close{
+    box-shadow: none;
+    outline: none;
+}
+.nav-link{
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active{
+    color: black;
+}
+@media(min-width: 991px){
+    .nav-link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #12d379;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-link:hover::before, .nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+
+
+}
+
+
+    .benefit-icon {
+      font-size: 32px;
+      color: darkgreen;
+      margin-bottom: 10px;
+    }
+    .yoga-img {
+      max-width: 100%;
+    }
+    .image-frame {
+  padding: 16px;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.yoga-img {
+  width: 100%;
+  height: 360px;         
+  object-fit: cover;   
+  border-radius: 20px;
+}
+/* Section background */
+.yoga-about-section {
+  background-color: #f5f1e8; /* beige */
+}
+
+/* Main image sizing */
+.main-yoga-img {
+  max-height: 380px;
+  object-fit: cover;
+}
+.section-yoga {
+  margin-top: 100px;
+}
+
+/* Small images */
+.hover-lift {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Text colors */
+.text-forest {
+  color: #2f5d50;
+}
+
+/* Button */
+.btn-zen-green {
+  background-color: #2f5d50;
+  color: #ffffff;
+  border-radius: 50px;
+}
+
+.btn-zen-green:hover {
+  background-color: #1f4037;
+  color: #ffffff;
+}
+
+    .section-tag {
+      color: #7cbf9e;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .main-title {
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .image-card {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    
+
+    .feature-card {
+      background: white;
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+    .hh{
+      background-color: beige;
+    }
+    .icon-circle {
+      background: #dff1e7;
+      color: #4f9e7a;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+
+.about-section {
+      padding: 80px 0;
+    }
+
+    .name-title {
+      color: #7fbf5b;
+      font-weight: 700;
+    }
+
+    .info-text {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* Stats styles */
+    .stats-box {
+      background-color: white;
+      border-radius: 16px;
+      padding: 22px 10px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      height: 100%;
+    }
+
+    .stats-number {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #7fbf5b;
+    }
+
+    .stats-text {
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    /* Image styles */
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .image-bg {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100%;
+      height: 100%;
+      background-color: #8ccf6a;
+      z-index: -1;
+      border-radius: 8px;
+    }
+
+    .profile-img {
+      max-height: 420px;
+      width: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+      .title {
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: currentColor;
+    border-radius: 10px;
+  }
+
+  .step {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .challenge {
+    color: #d9534f;
+  }
+
+  .challenge .circle {
+    background: #d9534f;
+  }
+
+  .solution {
+    color: #5cb85c;
+  }
+
+  .solution .circle {
+    background: #5cb85c;
+  }
+
+  .card-box {
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  }
+  .schedule-btn {
+  background: linear-gradient(135deg, #4CAF50, #81C784);
+  color: white;
+  padding: 14px 0;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+}
+
+.schedule-btn:hover {
+  background: linear-gradient(135deg, #43A047, #66BB6A);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(76, 175, 80, 0.4);
+  color: white;
+}
+    @media (max-width: 768px) {
+      .profile-img {
+        max-height: 300px;
+      }
+  }
+  @media (max-width: 768px) {
+  .navbar {
+    margin: 8px;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .hero-section {
+    height: 60vh;
+  }
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-section p {
+    font-size: 0.95rem;
+  }
+
+  .btn-hero {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .section-yoga .col-md-4 {
+    text-align: center !important;
+  }
+
+  .benefit-icon {
+    font-size: 28px;
+  }
+
+  .yoga-img {
+    height: 260px;
+    margin: 20px 0;
+  }
+}
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline::before {
+    left: 9px;
+  }
+
+  .circle {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .card-box {
+    padding: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .image-card img {
+    max-height: 260px;
+    object-fit: cover;
+  }
+
+  .feature-card {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .main-title {
+    text-align: center;
+  }
+}
+        .hero-section {
+       margin-top: 100px;
+  padding: 60px 20px;
+      background: linear-gradient(135deg, #d4fc79, #96e6a1);
+      color: #155d27;
+      padding: 80px 0;
+      border-radius: 25px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .btn-custom {
+      background-color: #21965f;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+      background-color: #0fa866;
+      transform: translateY(-2px);
+    }
+
+    .main-img {
+      
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      .text-area {
+        text-align: center;
+      }
+    }
+     footer {
+      background-color: #F1F8E9;
+      
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .footer-title {
+      color: #1B5E20;
+    }
+
+    .footer-text {
+      color: #2E7D32;
+    }
+
+    .footer-link {
+      color: #2E7D32;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-link:hover {
+      color: #1B5E20;
+      padding-left: 5px;
+    }
+
+    .dropdown-menu {
+      background-color: #C8E6C9;
+      border: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: #66BB6A;
+      color: white;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    hr {
+      border-color: #C8E6C9;
+    }
+    @media (max-width: 768px) {
+  .hero-section {
+    margin-top: 90px;
+    padding: 40px 15px;
+  }
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 768px) {
+
+  .footer-brand {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .footer-brand h5 {
+    text-align: center;
+  }
+
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  
+<body>
+
+  <nav class="navbar navbar-expand-lg  fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto d-flex" href="#">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5>
+                <a>
+                <div class="offcanvas offcanvas-end"  id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                  <div class="d-flex">
+                    <img src="logo.png" alt="logo" style="width: 60px;">
+                    <h5 class="fw-bold mb-0 footer-title mt-3">Green Aliens</h5>
+                  </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                
+                <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="AboutUs.html">About Us</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Activity
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+                                    <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+                                    <li><a class="dropdown-item" href="Meditation.html">Meditation</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-lg-2" href="#" role="button" data-bs-toggle="dropdown">
+                                    Event
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+                                    <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+                                    <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="volunteer.html">Volunteer</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="Schedule.html">Schedule</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="Login.html">Log in</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link  mx-lg-2" href="SignUp.html">Sign Up</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="ContactUs.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-lg-6 text-area">
+        <h1>FIND YOUR <br>INNER CALM</h1>
+
+        <div class="mt-4">
+          <h6 class="fw-bold">--------------</h6>
+          <p>
+            Relax your mind and body through meditation surrounded by nature. Enjoy fresh air, green scenery, and a peaceful environment to reduce stress and improve mental well-being.
+          </p>
+          <a href="#meditation" class="btn btn-custom">Explore</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mt-4 mt-lg-0">
+        <img src="https://img.freepik.com/free-photo/relaxed-woman-meditating_23-2147645710.jpg?semt=ais_hybrid&w=740&q=80"
+             class="main-img shadow"
+             alt="">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section id="meditation" class="section-yoga py-5 bg-light">
+  <div class="container py-5 overflow-hidden">
+  <p class="text-muted text-center">How Park Zone Contribute Meditation</p>
+  <h2 class="fw-bold mb-5 text-center">Park Zone Can Help You</h2>
+
+  <div class="row">
+
+    <!-- Left benefits -->
+    <div class="col-md-4 text-md-end mb-4 mb-md-0">
+      <div class="mb-4">
+        <div class="benefit-icon"><i class="bi bi-heart-pulse"></i></div>
+        <h6 class="fw-bold">Reduce Stress & Anxiety</h6>
+        <p class="text-muted small">Helps calm the mind and lower daily stress levels.</p>
+      </div>
+
+      <div class="mb-4">
+        <div class="benefit-icon"><i class="bi bi-bullseye"></i></div>
+        <h6 class="fw-bold">Improve Focus And Mindfulness</h6>
+        <p class="text-muted small">Quiet surroundings reduce distractions and improve focus during meditation.</p>
+      </div>
+
+      <div>
+        <div class="benefit-icon"><i class="bi bi-moon-stars"></i></div>
+        <h6 class="fw-bold">Connects You with Nature</h6>
+        <p class="text-muted small">Sounds like birds, wind, and rustling leaves create a soothing background.</p>
+      </div>
+    </div>
+
+    <!-- Center image -->
+    <div class="col-md-4 text-center">
+        <div class="image-frame">
+            <img src="https://img.freepik.com/free-photo/relaxed-woman-meditating-withclosed-eyes_23-2147645771.jpg?semt=ais_hybrid&w=740&q=80" alt="Yoga" class="yoga-img">
+        </div>
+    </div>
+
+    <!-- Right benefits -->
+    <div class="col-md-4 text-md-start">
+      <div class="mb-4">
+        <div class="benefit-icon"><i class="bi bi-emoji-smile"></i></div>
+        <h6 class="fw-bold">Boosts Emotional Well-Being</h6>
+        <p class="text-muted small">Spending time in parks can improve mood, reduce negative thoughts, and increase inner peace.</p>
+      </div>
+
+      <div class="mb-4">
+        <div class="benefit-icon"><i class="bi bi-eye"></i></div>
+        <h6 class="fw-bold">Enhances Relaxation</h6>
+        <p class="text-muted small">Fresh air, greenery, and open space relax both the body and mind.</p>
+      </div>
+
+      <div>
+        <div class="benefit-icon"><i class="bi bi-stars"></i></div>
+        <h6 class="fw-bold">And So Much More</h6>
+        <p class="text-muted small">Improves mood, patience, and overall well-being</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<Section class="hh">
+<div class="container py-5 overflow-hidden">
+
+  <h2 class="title mb-2">Meditation Indoor and Outdoor</h2>
+  <p class="text-center text-muted mb-5">
+    Comparing indoor and outdoor meditation 
+  </p>
+
+  <div class="row g-5">
+
+    <!-- CHALLENGES -->
+    <div class="col-md-6">
+      <h4 class="mb-4 text-danger">Meditation Indoor</h4>
+
+      <div class="timeline challenge">
+
+        <div class="step">
+          <div class="circle">01</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Limited Space Indoors</h6>
+            <p class="mb-0 text-muted">
+              Indoor meditation rooms are often small and restrict group participation.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">02</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Lack of Natural Environment</h6>
+            <p class="mb-0 text-muted">
+              Indoor spaces limit exposure to fresh air, greenery, and natural sounds.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">03</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Low Community Engagement</h6>
+            <p class="mb-0 text-muted">
+              Indoor meditation is often individual and less accessible to the public.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="col-md-6">
+      <h4 class="mb-4 text-success">Meditation Indoor</h4>
+
+      <div class="timeline solution">
+
+        <div class="step">
+          <div class="circle">01</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Open Park Meditation Zones</h6>
+            <p class="mb-0 text-muted">
+              Parks provide open spaces that support larger group meditation sessions.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">02</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Nature-Based Well-Being</h6>
+            <p class="mb-0 text-muted">
+              Greenery, shade trees, and fresh air improve relaxation and mental health.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">03</div>
+          <div class="card-box">
+            <h6 class="fw-bold">Stronger Community Engagement</h6>
+            <p class="mb-0 text-muted">
+              Public meditation zones encourage inclusive, shared park activities.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</Section>
+
+<section class="hh">
+<div class="container py-5 ">
+
+  <div class="row align-items-center g-5 hh">
+
+    <!-- LEFT SIDE -->
+    <div class="col-lg-6">
+     
+      <h2 class="main-title mb-4">
+        Why Choose Our
+        Park Meditation Zone?<br>
+      </h2>
+
+      <div class="image-card">
+        <img src="https://img.freepik.com/premium-photo/asian-woman-practicing-yoga-root-bond-mula-bandha-pose-mat-outdoor-park_38480-1292.jpg?w=360" alt="">
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="col-lg-6 d-flex flex-column gap-3">
+
+      <div class="feature-card">
+        <div class="icon-circle">🧘</div>
+        <div>
+          <h6 class="mb-1 fw-bold">Group Meditation</h6>
+          <p class="mb-0 ">
+            Join calm, guided sessions designed to reduce stress and improve focus.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-circle">🌳</div>
+        <div>
+          <h6 class="mb-1 fw-bold">Peaceful Natural Environment</h6>
+          <p class="mb-0">
+            Located in a quiet park zone surrounded by greenery and fresh air.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-circle">📅</div>
+        <div>
+          <h6 class="mb-1 fw-bold">Provide Digital Schedule</h6>
+          <p class="mb-0">
+            Use the platform to view schedules.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-circle">👥</div>
+        <div>
+          <h6 class="mb-1 fw-bold">Supportive Community Space</h6>
+          <p class="mb-0">
+            Meditate together in a respectful, inclusive, and judgment-free space.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-4">
+         <a href="Schedule.html" class="btn schedule-btn w-100">
+           Check Schedule
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</section>
+<footer class="pt-5 pb-4 mt-0 border-top">
+    <div class="container text-center text-md-start">
+      <div class="row">
+
+        <!-- About Section -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <div class="d-flex align-items-center mb-3 footer-brand">
+            <img src="logo.png" alt="Green Aliens Logo" class="footer-logo">
+            <h5 class="fw-bold mb-0 footer-title">Green Aliens</h5>
+          </div>
+          <p class="footer-text">
+            A hub for park activities and positive change. Join events, volunteer your time, and help transform our park into a vibrant space for everyone.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Quick Links</h6>
+
+          <p><a href="index.html" class="footer-link">Home</a></p>
+          <p><a href="AboutUs.html" class="footer-link">About Us</a></p>
+
+          <!-- Activity Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Activity
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yoga.html">Yoga Club</a></li>
+              <li><a class="dropdown-item" href="activity Zumba1 2.html">Zumba Club</a></li>
+              <li><a class="dropdown-item" href="Meditation.html">Meditation Club</a></li>
+            </ul>
+          </div>
+
+          <!-- Event Dropdown -->
+          <div class="dropdown mb-2">
+            <a class="dropdown-toggle footer-link" href="#" role="button" data-bs-toggle="dropdown">
+              Event
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Funfair.html">Fun Fair</a></li>
+              <li><a class="dropdown-item" href="food court.html">Food Court</a></li>
+              <li><a class="dropdown-item" href="renting2 2.html">Renting</a></li>
+            </ul>
+          </div>
+
+          
+           <p><a href="volunteer.html" class="footer-link">Volunteer</a></p>
+          <p><a href="Schedule.html" class="footer-link">Schedule</a></p>
+           <p><a href="ICT reference list (1) (1).pdf" class="footer-link">Reference</a></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-3 footer-title">Contact Us</h6>
+
+          <p class="footer-text">
+            <i class="bi bi-geo-alt-fill contact-icon"></i>
+            Yangon, Myanmar
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-telephone-fill contact-icon"></i>
+            +95 9 123 456 789
+          </p>
+
+          <p class="footer-text">
+            <i class="bi bi-envelope-fill contact-icon"></i>
+            thealiens@example.com
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <hr class="my-4">
+
+      <!-- Copyright -->
+      <div class="text-center">
+        <small class="footer-text">
+           © 2026 Green Aliens. All Rights Reserved.
+        </small>
+      </div>
+
+    </div>
+  </footer>
+
+
+
+   
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
